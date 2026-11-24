@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16130f" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Prado Museum Guide — 54 Masterpieces of the Permanent Collection, Room by Room (Madrid)</title>
+<meta name="description" content="Free offline guide to the Museo del Prado, Madrid: 54 masterpieces of the permanent collection in walking order with room numbers — Bosch, Titian, El Greco, Velázquez, Rubens, Goya. Non-profit, open source.">
+<link rel="canonical" href="https://vicktorhugoqs.github.io/prado-guide/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prado Museum Guide — 54 Masterpieces, Room by Room">
+<meta property="og:description" content="A free, offline-capable field guide to the permanent collection of the Museo del Prado: 54 works in walking order, with room numbers and the stories behind them.">
+<meta property="og:url" content="https://vicktorhugoqs.github.io/prado-guide/">
+<meta property="og:image" content="https://vicktorhugoqs.github.io/prado-guide/img/las-meninas.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Prado Museum Guide",
+  "url": "https://vicktorhugoqs.github.io/prado-guide/",
+  "description": "A free, non-profit, open-source visitor guide to the permanent collection of the Museo Nacional del Prado in Madrid: 54 masterpieces in walking order with room numbers.",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "about": {
+    "@type": "Museum",
+    "name": "Museo Nacional del Prado",
+    "alternateName": "Prado Museum",
+    "url": "https://www.museodelprado.es/en",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Paseo del Prado s/n",
+      "addressLocality": "Madrid",
+      "postalCode": "28014",
+      "addressCountry": "ES"
+    }
+  }
+}
+</script>
+<style>
+:root{
+  --bg:#f7f4ee; --surface:#efeae0; --card:#fffdf9; --ink:#1d1a16; --ink2:#5c554b; --ink3:#6f675b;
+  --line:#ddd5c6; --accent:#8e2a1f; --seen:#2e6b3a; --btn:#1d1a16; --btnink:#fff;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16130f; --surface:#211d17; --card:#1c1813; --ink:#ece6da; --ink2:#bfb6a6; --ink3:#a39a8a;
+    --line:#3a342b; --accent:#e08b74; --seen:#7cc48a; --btn:#ece6da; --btnink:#16130f;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16130f; --surface:#211d17; --card:#1c1813; --ink:#ece6da; --ink2:#bfb6a6; --ink3:#a39a8a;
+  --line:#3a342b; --accent:#e08b74; --seen:#7cc48a; --btn:#ece6da; --btnink:#16130f;
+}
+*{box-sizing:border-box; margin:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font:16px/1.6 var(--sans);
+  padding-bottom:5.5rem;
+}
+h1,h2,h3{font-family:var(--serif); line-height:1.2; font-weight:600}
+a{color:inherit}
+
+header.top{
+  position:sticky; top:0; z-index:10; background:var(--bg);
+  border-bottom:1px solid var(--ink);
+  padding:.6rem 1rem .5rem;
+}
+.toprow{display:flex; align-items:baseline; justify-content:space-between; gap:.6rem}
+/* The masthead is a chrome label, not the page heading — the h1 lives in
+   the hero, so this is a <p> with its weight spelled out. */
+.toprow .brand{
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.1em;
+  line-height:1.25; font-weight:600;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+#progress{font-size:.8rem; color:var(--ink2); font-variant-numeric:tabular-nums; white-space:nowrap}
+#progress b{color:var(--seen)}
+nav.chips{
+  display:flex; gap:.35rem; overflow-x:auto; margin:.55rem -1rem 0; padding:0 1rem .4rem;
+  -webkit-overflow-scrolling:touch;
+}
+/* A touch user can swipe the strip; a mouse cannot, so it gets a bar. */
+@media (pointer:coarse){
+  nav.chips{scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+}
+@media (pointer:fine){
+  nav.chips{scrollbar-width:thin; scrollbar-color:var(--line) transparent; padding-bottom:.55rem}
+}
+.chip{
+  flex:0 0 auto; font-size:.7rem; letter-spacing:.03em;
+  padding:.3rem .6rem .3rem .3rem; border:1px solid var(--line); background:var(--card);
+  color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:.4rem;
+}
+.chip .fl{
+  font-size:.62rem; font-weight:700; min-width:1.2rem; height:1.2rem; line-height:1.2rem;
+  text-align:center; background:var(--surface); color:var(--ink2);
+}
+.chip .fl::before{content:"F"}
+
+main{max-width:44rem; margin:0 auto; padding:0 1rem}
+
+.notice{
+  background:var(--surface); border-left:2px solid var(--ink);
+  margin:.9rem 0 0; padding:.55rem .8rem;
+  font-size:.76rem; line-height:1.5; color:var(--ink2);
+}
+.notice b{color:var(--ink)}
+
+.hero{padding:1.5rem 0 .4rem}
+.hero h1{font-size:1.85rem; margin-bottom:.25rem}
+.hero .tagline{font-family:var(--serif); font-size:1.1rem; line-height:1.3; color:var(--ink2); margin-bottom:.8rem; font-style:italic}
+.hero p{color:var(--ink2); font-size:.96rem; margin-bottom:.65rem}
+.hero p b{color:var(--ink)}
+.practical{
+  background:var(--surface); padding:.9rem 1rem; margin:1rem 0 0; font-size:.9rem;
+}
+.practical div{padding:.2rem 0}
+.practical .k{
+  color:var(--ink3); margin-right:.4rem; font-size:.68rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.08em;
+}
+h2.small{font-size:1.15rem; margin:1.6rem 0 .5rem}
+table.route{width:100%; border-collapse:collapse; font-size:.86rem; margin-top:.4rem}
+table.route th{
+  text-align:left; font-size:.66rem; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink3); font-weight:600; padding:.3rem .4rem; border-bottom:1px solid var(--ink);
+}
+table.route td{padding:.38rem .4rem; border-bottom:1px solid var(--line); vertical-align:top}
+table.route td:first-child,table.route td:nth-child(3){color:var(--ink3); font-variant-numeric:tabular-nums; width:1.8rem}
+table.route td:nth-child(3){text-align:center}
+table.route td:last-child{white-space:nowrap; font-variant-numeric:tabular-nums}
+table.route a{text-decoration:none}
+.tablenote{color:var(--ink3); font-size:.78rem; margin-top:.5rem}
+
+section.gallery{padding-top:2rem}
+.where{
+  font-size:.7rem; text-transform:uppercase; letter-spacing:.09em; font-weight:600;
+  color:var(--accent); border-top:1px solid var(--ink); padding-top:.7rem;
+  display:flex; justify-content:space-between; gap:.5rem;
+}
+.where span{color:var(--ink3)}
+section.gallery > h2{font-size:1.5rem; margin-top:.3rem; scroll-margin-top:7.5rem}
+section.gallery > .intro{color:var(--ink2); font-size:.95rem; margin:.5rem 0 1.1rem}
+
+article.work{
+  background:var(--card); border:1px solid var(--line);
+  margin-bottom:1.2rem; overflow:hidden; scroll-margin-top:7rem;
+  transition:opacity .25s;
+}
+article.work.seen{opacity:.5}
+article.work img{width:100%; height:auto; display:block; background:var(--surface)}
+.workbody{padding:.85rem 1rem 1.05rem}
+.workhead{display:flex; justify-content:space-between; align-items:flex-start; gap:.7rem}
+.room{
+  display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:.2rem;
+}
+.workhead h3{font-size:1.18rem}
+.maker{font-weight:600; font-size:.86rem; margin:.2rem 0 .1rem}
+.meta{color:var(--ink3); font-size:.76rem; margin-bottom:.6rem}
+.blurb{font-size:.95rem}
+.look{
+  margin-top:.65rem; font-size:.9rem; color:var(--ink2);
+  border-left:2px solid var(--accent); padding:.1rem 0 .1rem .7rem;
+}
+.look b{
+  color:var(--accent); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+  margin-right:.25rem;
+}
+button.seenbtn{
+  flex:0 0 auto; border:1px solid var(--line); background:transparent; color:var(--ink3);
+  border-radius:50%; width:2.4rem; height:2.4rem; font-size:1.05rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+article.work.seen button.seenbtn{border-color:var(--seen); color:var(--seen); border-width:2px}
+
+#nextbtn{
+  position:fixed; bottom:calc(1.1rem + env(safe-area-inset-bottom)); right:1rem; z-index:20;
+  background:var(--btn); color:var(--btnink); border:none;
+  padding:.8rem 1.1rem; font-family:var(--sans); font-size:.72rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.08em; cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,.25);
+}
+footer{
+  max-width:44rem; margin:2.8rem auto 0; padding:1rem;
+  border-top:1px solid var(--ink);
+  color:var(--ink2); font-size:.78rem;
+}
+footer p{margin-bottom:.6rem}
+#resetlink,#offlinebtn,#themebtn{
+  background:none; border:none; padding:0; font:inherit; color:inherit;
+  cursor:pointer; text-decoration:underline;
+}
+#offline:empty{display:none}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="toprow">
+    <p class="brand">Prado · Permanent Collection</p>
+    <span id="progress" role="status"></span>
+  </div>
+  <nav class="chips" id="chips" aria-label="Sections">
+<!--BEGIN GENERATED chips-->
+  <a class="chip" href="#s-flemish"><span class="fl">0</span>1. Flemish Primitives &amp; Bosch</a>
+  <a class="chip" href="#s-northern"><span class="fl">0</span>2. Bruegel, Patinir &amp; Dürer</a>
+  <a class="chip" href="#s-italian"><span class="fl">0</span>3. Italian Renaissance</a>
+  <a class="chip" href="#s-venice"><span class="fl">1</span>4. Titian &amp; Venice</a>
+  <a class="chip" href="#s-greco"><span class="fl">1</span>5. El Greco</a>
+  <a class="chip" href="#s-golden"><span class="fl">1</span>6. Caravaggio &amp; the Spanish Golden Age</a>
+  <a class="chip" href="#s-velazquez1"><span class="fl">1</span>7. Velázquez I</a>
+  <a class="chip" href="#s-velazquez2"><span class="fl">1</span>8. Velázquez II</a>
+  <a class="chip" href="#s-rubens"><span class="fl">1</span>9. Rubens &amp; Van Dyck</a>
+  <a class="chip" href="#s-goyacourt"><span class="fl">1</span>10. Goya at Court</a>
+  <a class="chip" href="#s-upstairs"><span class="fl">2</span>11. Top floor</a>
+  <a class="chip" href="#s-goyawar"><span class="fl">0</span>12. Goya</a>
+  <a class="chip" href="#s-nineteenth"><span class="fl">0</span>13. After Goya</a>
+<!--END GENERATED chips-->
+  </nav>
+</header>
+
+<main>
+  <p class="notice"><b>Free, non-profit &amp; open-source.</b> An independent visitor guide — not affiliated with, or endorsed by, the Museo Nacional del Prado. Texts may contain errors, and the Prado rehangs often: the museum's own labels and <a href="https://www.museodelprado.es/en">museodelprado.es</a> are authoritative. <a href="https://github.com/vicktorhugoqs/prado-guide">Source on GitHub</a>.</p>
+  <div class="hero">
+    <h1>Museo del Prado Guide</h1>
+    <p class="tagline">The permanent collection in <!--BEGIN GENERATED count-->
+54
+<!--END GENERATED count--> masterpieces, room by room</p>
+    <p>The Prado is the Spanish royal collection, opened to the public in 1819. That single fact explains it: the kings bought what they loved, in depth — Bosch for Philip II, Titian for Charles V and Philip II, Rubens and Velázquez for Philip IV — and so a handful of painters are here as nowhere else on earth. The guide follows one walkable route from the oldest pictures to Goya, with a room number on every card.</p>
+    <p>One idea to carry through: <b>painters looking at painters.</b> Rubens copies Titian in the palace; Velázquez answers both; Goya puts himself in a royal portrait the way Velázquez did in Las Meninas. The collection is a conversation held across three centuries inside one building.</p>
+    <div class="practical">
+      <div><span class="k">Hours</span> Mon–Sat 10:00–20:00 · Sundays &amp; holidays 10:00–19:00 · closed 1 Jan, 1 May, 25 Dec</div>
+      <div><span class="k">Tickets</span> <!--BEGIN GENERATED admission-->
+€15 general, €7.50 reduced; free for everyone in the last two hours (Monday to Saturday 18:00–20:00, Sundays and holidays 17:00–19:00), and always free for under-18s. Checked 24 Nov 2026 — <a href="https://www.museodelprado.es/en/visit/opening-times-and-prices">confirm on museodelprado.es</a>.
+<!--END GENERATED admission--></div>
+      <div><span class="k">Where</span> Paseo del Prado · Metro Banco de España (L2) or Estación del Arte (L1)</div>
+      <div><span class="k">Plan</span> Take the free paper plan at the entrance — the rooms below use its numbers. Floor 0 is the ground floor, Floor 1 the main floor, Floor 2 the top.</div>
+      <div><span class="k">Rules</span> No photography in the collection galleries; large bags and backpacks go to the free cloakroom.</div>
+      <div><span class="k">More</span> Short on time? <a href="highlights-2-hours/">The 2-hour route</a> · Practical questions? <a href="faq/">Visitor FAQ</a></div>
+    </div>
+
+    <h2 class="small">The route at a glance</h2>
+<!--BEGIN GENERATED route-->
+    <table class="route">
+      <thead><tr><th scope="col">#</th><th scope="col">Stop</th><th scope="col">Floor</th><th scope="col">Rooms</th></tr></thead>
+      <tbody>
+      <tr><td>1</td><td><a href="#s-flemish">Flemish Primitives &amp; Bosch</a></td><td>0</td><td>56A, 58</td></tr>
+      <tr><td>2</td><td><a href="#s-northern">Bruegel, Patinir &amp; Dürer</a></td><td>0</td><td>55A, 55B</td></tr>
+      <tr><td>3</td><td><a href="#s-italian">Italian Renaissance</a></td><td>0</td><td>49, 55, 56B</td></tr>
+      <tr><td>4</td><td><a href="#s-venice">Titian &amp; Venice</a></td><td>1</td><td>25, 27, 42, 44</td></tr>
+      <tr><td>5</td><td><a href="#s-greco">El Greco</a></td><td>1</td><td>8B, 9B</td></tr>
+      <tr><td>6</td><td><a href="#s-golden">Caravaggio &amp; the Spanish Golden Age</a></td><td>1</td><td>7A, 9, 10A, 16</td></tr>
+      <tr><td>7</td><td><a href="#s-velazquez1">Velázquez I: Seville to Rome</a></td><td>1</td><td>10, 11, 14</td></tr>
+      <tr><td>8</td><td><a href="#s-velazquez2">Velázquez II: Painter to the King</a></td><td>1</td><td>9A, 12, 15A</td></tr>
+      <tr><td>9</td><td><a href="#s-rubens">Rubens &amp; Van Dyck</a></td><td>1</td><td>16B, 28, 29</td></tr>
+      <tr><td>10</td><td><a href="#s-goyacourt">Goya at Court</a></td><td>1</td><td>32, 38</td></tr>
+      <tr><td>11</td><td><a href="#s-upstairs">Top floor: Goya's Cartoons, Rembrandt &amp; Clara Peeters</a></td><td>2</td><td>76, 82, 90</td></tr>
+      <tr><td>12</td><td><a href="#s-goyawar">Goya: War &amp; the Black Paintings</a></td><td>0</td><td>64, 66, 67</td></tr>
+      <tr><td>13</td><td><a href="#s-nineteenth">After Goya: the 19th Century</a></td><td>0</td><td>63B, 75</td></tr>
+      </tbody>
+    </table>
+<!--END GENERATED route-->
+    <p class="tablenote">The Prado has no fixed circuit. This route starts on Floor 0 with the oldest pictures, climbs through the main floor and the top floor, and ends back on Floor 0 with Goya's Black Paintings. If a room is packed, skip ahead and come back.</p>
+  </div>
+  <div id="sections">
+<!--BEGIN GENERATED sections-->
+  <section class="gallery">
+  <p class="where"><span>1 of 13</span> Floor 0 · Rooms 56A, 58</p>
+  <h2 id="s-flemish">Flemish Primitives &amp; Bosch</h2>
+  <p class="intro">Spain ruled the Low Countries for two centuries, and Castile bought Flemish painting long before it bought Italian. That is why the finest Bosch collection on earth hangs in Madrid rather than in 's-Hertogenbosch: Philip II hunted his pictures down with a collector's obsession and hung them at El Escorial. Start with Rogier van der Weyden in Room 58, the painting every Netherlandish artist of the next century measured himself against, then step into the dim Bosch room, 56A.</p>
+  <article class="work" id="w-descent-from-the-cross">
+  <img src="img/descent-from-the-cross.jpg" width="768" height="596" loading="lazy" decoding="async" alt="Ten mourners in a shallow gold box lower the pale body of Christ; the Virgin in blue collapses in the same curve as her son's body.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 58</p>
+      <h3>The Descent from the Cross</h3>
+      <p class="maker">Rogier van der Weyden, before 1443</p>
+      <p class="meta">Oil on panel · P002825 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-descent-from-the-cross/856d822a-dd22-4425-bebd-920a1d416aa7" aria-label="The Descent from the Cross on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Descent from the Cross as seen" aria-pressed="false" data-id="descent-from-the-cross">✓</button></div>
+    <p class="blurb">The painting that set the standard for a century of Netherlandish art. Rogier packed ten nearly life-size figures into a shallow gilded box, as if a carved and painted altarpiece had come to life, and then made grief itself the subject. The Virgin faints in exactly the curve of her son's body: compassio, the idea that she lived his Passion with him. It was painted for the Crossbowmen's Guild of Leuven; Mary of Hungary, regent of the Netherlands, wanted it so badly that she obtained it in exchange for a copy and an organ, and her nephew Philip II hung it at El Escorial.</p>
+    <p class="look"><b>Look for</b> the tiny crossbows hidden in the gilded tracery of the top corners — the guild's signature — and the tears, painted as glassy beads, on almost every face.</p>
+  </div>
+  </article>
+  <article class="work" id="w-garden-of-earthly-delights">
+  <img src="img/garden-of-earthly-delights.jpg" width="768" height="433" loading="lazy" decoding="async" alt="Open triptych: a green paradise at left, a crowded pink-and-blue garden of nudes and giant fruit in the centre, a black burning hell at right.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56A</p>
+      <h3>The Garden of Earthly Delights</h3>
+      <p class="maker">Hieronymus Bosch, 1490–1500</p>
+      <p class="meta">Oil on oak panel · P002823 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609" aria-label="The Garden of Earthly Delights on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Garden of Earthly Delights as seen" aria-pressed="false" data-id="garden-of-earthly-delights">✓</button></div>
+    <p class="blurb">Nobody knows exactly what this painting means, and that is half its hold. Read it left to right: God presents Eve to Adam in a paradise where animals already prey on one another; the central panel fills with naked men and women gorging on giant fruit, riding animals in circles, sealed into bubbles and shells; then the night of the right wing, a hell where musical instruments have become instruments of torture. Most scholars read it as a warning about a world given over to lust. It was recorded in 1517 in the Nassau palace in Brussels; Philip II bought it in 1591 and sent it to El Escorial.</p>
+    <p class="look"><b>Look for</b> in the right wing, a sinner pinned under a lute with a line of music written on his buttocks (it has been transcribed and performed), and the 'tree-man', an egg-shell body on tree-trunk legs, whose face turns back to look at you.</p>
+  </div>
+  </article>
+  <article class="work" id="w-haywain">
+  <img src="img/haywain.jpg" width="768" height="538" loading="lazy" decoding="async" alt="Open triptych: Eden at left; a huge hay cart mobbed by tiny fighting people in the centre, pulled by monsters; hell being built at right.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56A</p>
+      <h3>The Haywain Triptych</h3>
+      <p class="maker">Hieronymus Bosch, 1512–1515</p>
+      <p class="meta">Oil on panel · P002052 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-haywain-triptych/7673843a-d2b6-497a-ac80-16242b36c3ce" aria-label="The Haywain Triptych on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Haywain Triptych as seen" aria-pressed="false" data-id="haywain">✓</button></div>
+    <p class="blurb">A Flemish proverb said the world is a haycart and everyone grabs what they can. Bosch paints it literally: a mountain of hay rolls across the centre while peasants, nuns, a fat friar and every rank of society climb, stab and trample each other to pull at it. The pope and the emperor ride calmly behind. Nobody notices what is drawing the cart — a team of hybrid demons heading straight into the right wing, where hell is still under construction. Read the left wing first: the fall of the rebel angels, Eve's creation, the Fall, the expulsion. Sin, then its consequence.</p>
+    <p class="look"><b>Look for</b> on top of the hay, a pair of lovers making music between a praying angel and a blue devil piping a tune — and Christ in the clouds above, arms raised, ignored by everyone.</p>
+  </div>
+  </article>
+  <article class="work" id="w-seven-deadly-sins">
+  <img src="img/seven-deadly-sins.jpg" width="768" height="654" loading="lazy" decoding="async" alt="Flat panel: a large central eye with Christ in the pupil, ringed by seven small scenes of daily life, with four roundels in the corners.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56A</p>
+      <h3>Table of the Seven Deadly Sins</h3>
+      <p class="maker">Hieronymus Bosch, c. 1505–1510</p>
+      <p class="meta">Oil on poplar panel · P002822 · <a href="https://www.museodelprado.es/en/the-collection/art-work/table-of-the-seven-deadly-sins/3fc0a84e-d77d-4217-b960-8a34b8873b70" aria-label="Table of the Seven Deadly Sins on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Table of the Seven Deadly Sins as seen" aria-pressed="false" data-id="seven-deadly-sins">✓</button></div>
+    <p class="blurb">Made to be looked down into, the way God looks down at you. The centre is a giant eye with the risen Christ in its pupil and the warning 'Cave, cave, Dominus videt' — beware, beware, the Lord sees. Around the iris, the seven deadly sins as scenes of ordinary Flemish life: a glutton gorging, a judge taking a bribe from one party while hearing the other, a woman admiring herself in a mirror held up by a devil. The corners show the Four Last Things: death, judgement, heaven and hell. Philip II kept it in his private apartments at El Escorial. Its attribution has been argued over; the Prado accepts it as Bosch, and it is signed.</p>
+    <p class="look"><b>Look for</b> Pride (Superbia): the woman admiring her headdress has not noticed who is holding up her mirror.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>2 of 13</span> Floor 0 · Rooms 55A, 55B</p>
+  <h2 id="s-northern">Bruegel, Patinir &amp; Dürer</h2>
+  <p class="intro">Two exits from Bosch's world. In Flanders, landscape stops being a backdrop and becomes the subject: Patinir invents the 'world landscape' seen from a bird's height, and Bruegel fills it with everybody at once. In Germany, Dürer goes to Italy twice and comes home with proportion, perspective and a new idea of what an artist is. Both arrived in Madrid through Habsburg collecting — Dürer's Adam and Eve by way of a Swedish army's loot.</p>
+  <article class="work" id="w-triumph-of-death">
+  <img src="img/triumph-of-death.jpg" width="768" height="548" loading="lazy" decoding="async" alt="A scorched brown landscape overrun by armies of skeletons herding people into a giant coffin; ships burn and gallows stand on the hills.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 55A</p>
+      <h3>The Triumph of Death</h3>
+      <p class="maker">Pieter Bruegel the Elder, c. 1562–1563</p>
+      <p class="meta">Oil on panel · P001393 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-triumph-of-death/d3d82b0b-9bf2-4082-ab04-66ed53196ccc" aria-label="The Triumph of Death on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Triumph of Death as seen" aria-pressed="false" data-id="triumph-of-death">✓</button></div>
+    <p class="blurb">The medieval theme of death the leveller, painted as total war. Skeleton armies sweep across a burnt landscape, herd the living into a coffin-shaped trap and ring a bell for the dead; nobody escapes, from king to pilgrim. Bruegel had looked hard at Bosch, but where Bosch's hell is fantasy, this is closer to reportage of the Low Countries in the 1560s, on the eve of their revolt against Spain: gallows, wheels for breaking the condemned, burning ships. It belonged to Elisabeth Farnese, Philip V's queen, and was cleaned in 2018, which brought back its colour.</p>
+    <p class="look"><b>Look for</b> the bottom right corner: two lovers sing from a part-book, oblivious, while a skeleton plays along behind them — and nearby a jester hides under the table.</p>
+  </div>
+  </article>
+  <article class="work" id="w-charon-crossing-the-styx">
+  <img src="img/charon-crossing-the-styx.jpg" width="768" height="475" loading="lazy" decoding="async" alt="A wide blue-green landscape split by a river; a ferryman rows a small pale figure between a sunny paradise at left and a fiery gate at right.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 55A</p>
+      <h3>Charon Crossing the Styx</h3>
+      <p class="maker">Joachim Patinir, 1520–1524</p>
+      <p class="meta">Oil on panel · P001616 · <a href="https://www.museodelprado.es/en/the-collection/art-work/charon-crossing-the-styx/c51349b6-049e-476c-a388-5ae6d301e8c1" aria-label="Charon Crossing the Styx on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Charon Crossing the Styx as seen" aria-pressed="false" data-id="charon-crossing-the-styx">✓</button></div>
+    <p class="blurb">Dürer called Patinir 'the good landscape painter', and this is why: the subject is a tiny boat, and the real subject is the world. Charon ferries a soul across the river of the dead. On the left bank lies Paradise, bright, with angels — but it is reached by a narrow, difficult way. On the right, the gate of Hell, guarded by the three-headed dog Cerberus, looks easy to land at. Watch where the soul is looking. Christian choice is set in a pagan myth, painted from a bird's height, in the blue distances Patinir made his trademark.</p>
+    <p class="look"><b>Look for</b> the soul in the boat: he is turned towards the inviting bank on the right.</p>
+  </div>
+  </article>
+  <article class="work" id="w-durer-self-portrait">
+  <img src="img/durer-self-portrait.jpg" width="768" height="970" loading="lazy" decoding="async" alt="A young man with long curled fair hair, in a striped black-and-white cap and gloves, poses by a window that opens onto mountains.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 55B</p>
+      <h3>Self-Portrait</h3>
+      <p class="maker">Albrecht Dürer, 1498</p>
+      <p class="meta">Oil on panel · P002179 · <a href="https://www.museodelprado.es/en/the-collection/art-work/self-portrait/8417d190-eb9d-4c52-9c89-dcdcd0109b5b" aria-label="Self-Portrait on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Self-Portrait as seen" aria-pressed="false" data-id="durer-self-portrait">✓</button></div>
+    <p class="blurb">At twenty-six Dürer paints himself not as a craftsman — which is what a painter was in Nuremberg — but as a gentleman, in expensive clothes and kid gloves, framed like a nobleman. The inscription says: 'I painted it according to my likeness. I was 26 years old.' He had already been to Venice, where painters were treated as intellectuals; this is a manifesto in the form of a portrait. The city of Nuremberg later gave it to the Earl of Arundel for Charles I of England, and at the sale of the executed king's collection it was bought for Philip IV.</p>
+    <p class="look"><b>Look for</b> the gloves — useless to a man who works with his hands — and the Alpine view through the window, a memory of the crossing to Italy.</p>
+  </div>
+  </article>
+  <article class="work" id="w-durer-adam-and-eve">
+  <img src="img/durer-adam-and-eve.jpg" width="768" height="978" loading="lazy" decoding="async" alt="Two tall dark panels side by side: a slender nude Adam holding an apple bough, and a nude Eve taking an apple from a serpent in a tree.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 55B</p>
+      <h3>Adam and Eve</h3>
+      <p class="maker">Albrecht Dürer, 1507</p>
+      <p class="meta">Oil on panel, two panels · P002177–8 · <a href="https://www.museodelprado.es/en/the-collection/art-work/adam/25804757-ea25-4aba-903b-eaced6859754" aria-label="Adam and Eve on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Adam and Eve as seen" aria-pressed="false" data-id="durer-adam-and-eve">✓</button></div>
+    <p class="blurb">The first life-size nudes in German painting, made just after Dürer's second stay in Venice. In his famous 1504 engraving of the same subject he had built Adam and Eve with ruler and compass, from ideal proportions; here, after Venice, they are slimmer, lighter and moving — almost dancing towards each other across the gap between the panels. The pair went to Emperor Rudolf II in Prague, were taken by the Swedish army when it sacked the city in 1648, and were given by Queen Christina of Sweden to Philip IV in 1654.</p>
+    <p class="look"><b>Look for</b> the little tablet hanging from the branch beside Eve: Dürer's signature, 'Albrecht Dürer, German, made this 1507 years after the Virgin gave birth'.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>3 of 13</span> Floor 0 · Rooms 49, 55, 56B</p>
+  <h2 id="s-italian">Italian Renaissance</h2>
+  <p class="intro">Small rooms, large stakes. The Italian fifteenth century reached Madrid late and by odd routes — a convent sale, a king's execution in London, a Catalan politician's bequest — so what the Prado has is few pictures, each first-rate. Room 56B holds the Quattrocento; Room 49 is given to Raphael's late work in Rome. On the way, in Room 55, the woman who painted Philip II.</p>
+  <article class="work" id="w-annunciation">
+  <img src="img/annunciation.jpg" width="768" height="754" loading="lazy" decoding="async" alt="Under a blue-vaulted portico an angel in pink kneels before Mary; at left, Adam and Eve leave a flowering garden. Small scenes run below.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56B</p>
+      <h3>The Annunciation</h3>
+      <p class="maker">Fra Angelico, 1425–1426</p>
+      <p class="meta">Tempera on poplar panel · P000015 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-annunciation/9b02b6c9-3618-4a92-a6b7-26f9076fcb67" aria-label="The Annunciation on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Annunciation as seen" aria-pressed="false" data-id="annunciation">✓</button></div>
+    <p class="blurb">Painted by a Dominican friar for his own convent church of San Domenico in Fiesole, above Florence, at the moment Florentine painting discovered perspective. The portico is measured space; the gold and the stars on the blue vault are still medieval heaven. The key is the left edge: Adam and Eve being expelled from Eden — the Fall that the Annunciation, in the centre, begins to undo. The convent sold it in 1611; it reached Spain as a gift to the Duke of Lerma and spent two and a half centuries in a Madrid convent before the Prado. It was restored for the museum's great Fra Angelico exhibition in 2019.</p>
+    <p class="look"><b>Look for</b> the thin golden ray that leaves God's hands at top left, crosses the expulsion and ends at Mary, carrying the dove.</p>
+  </div>
+  </article>
+  <article class="work" id="w-death-of-the-virgin">
+  <img src="img/death-of-the-virgin.jpg" width="766" height="1000" loading="lazy" decoding="async" alt="Apostles in bright robes stand around the Virgin's bier in a tiled hall; a large window behind them looks out on a lake crossed by a long bridge.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56B</p>
+      <h3>The Death of the Virgin</h3>
+      <p class="maker">Andrea Mantegna, c. 1462</p>
+      <p class="meta">Mixed technique on panel · P000248 · <a href="https://www.museodelprado.es/en/the-collection/art-work/death-of-the-virgin/6ebfe544-41dd-44ac-a217-d7ba24fc0d48" aria-label="The Death of the Virgin on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Death of the Virgin as seen" aria-pressed="false" data-id="death-of-the-virgin">✓</button></div>
+    <p class="blurb">Small, and a manifesto of the new perspective: the tiled floor and the pilasters drive the eye to the window and out across a real landscape. Mantegna painted it for the chapel of the Gonzaga in their castle at Mantua. The panel was cut down — its upper third, with Christ receiving his mother's soul, is in Ferrara. The Gonzaga sold their collection to Charles I of England; after his execution Spain bought this at the sale of his pictures, and it hung in Philip IV's palace.</p>
+    <p class="look"><b>Look for</b> the view through the window: not Jerusalem but the lakes of Mantua and the long bridge of San Giorgio, which Mantegna could see from the castle.</p>
+  </div>
+  </article>
+  <article class="work" id="w-nastagio">
+  <img src="img/nastagio.jpg" width="768" height="450" loading="lazy" decoding="async" alt="In a pine forest a mounted knight with hounds pursues a naked woman; a young man in red raises a branch to fend them off; tents by the sea behind.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 56B</p>
+      <h3>The Story of Nastagio degli Onesti</h3>
+      <p class="maker">Sandro Botticelli, 1483</p>
+      <p class="meta">Tempera on panel, three panels · P002838–40 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=nastagio" aria-label="The Story of Nastagio degli Onesti on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Story of Nastagio degli Onesti as seen" aria-pressed="false" data-id="nastagio">✓</button></div>
+    <p class="blurb">A wedding present with a dark story. In Boccaccio's Decameron, Nastagio, rejected by the woman he loves, sees in the pine forest of Ravenna a ghostly knight hunting a naked woman with dogs, killing her and feeding her heart to them — her punishment, repeated every Friday, for scorning him. Nastagio invites his beloved to a banquet on the spot; she watches, and agrees to marry him. Botticelli's workshop painted the series in 1483 for a Florentine wedding probably arranged by Lorenzo de' Medici, to be set into the walls of the couple's bedroom. The three panels came to the Prado as a gift from the Catalan politician Francesc Cambó.</p>
+    <p class="look"><b>Look for</b> the same figures reappearing several times in one panel — the story told as a strip — and, in the banquet panel, the families' coats of arms hung on the trees.</p>
+  </div>
+  </article>
+  <article class="work" id="w-the-cardinal">
+  <img src="img/the-cardinal.jpg" width="768" height="1000" loading="lazy" decoding="async" alt="Half-length portrait of a lean young cardinal in a scarlet cape and cap against a dark green ground, a white sleeve at the lower edge.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 49</p>
+      <h3>The Cardinal</h3>
+      <p class="maker">Raphael, 1510–1511</p>
+      <p class="meta">Oil on panel · P000299 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-cardinal/4c01eae6-feed-4135-88d9-6736140212fb" aria-label="The Cardinal on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Cardinal as seen" aria-pressed="false" data-id="the-cardinal">✓</button></div>
+    <p class="blurb">Raphael painted it in Rome while he was decorating the Pope's rooms in the Vatican, and nobody knows who the sitter is — several cardinals of Julius II's court have been proposed. It hardly matters: this is one of the Renaissance's great studies of intelligence and reserve, a long nose, closed lips, an alert eye. The means are almost nothing, which is the lesson Titian and Velázquez would later learn: a red, a white, a dark ground, a face.</p>
+    <p class="look"><b>Look for</b> how little there is — no setting, no attributes — and how the red changes from scarlet in the light to near-black in the folds.</p>
+  </div>
+  </article>
+  <article class="work" id="w-anguissola-philip-ii">
+  <img src="img/anguissola-philip-ii.jpg" width="768" height="945" loading="lazy" decoding="async" alt="Three-quarter portrait of a pale bearded man in black with a white ruff and a tall black cap, a rosary in his hand.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 55</p>
+      <h3>Philip II</h3>
+      <p class="maker">Sofonisba Anguissola, 1573</p>
+      <p class="meta">Oil on canvas · P001036 · <a href="https://www.museodelprado.es/en/the-collection/art-work/philip-ii/7d7280d6-5603-488a-8521-933acc357d7a" aria-label="Philip II on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Philip II as seen" aria-pressed="false" data-id="anguissola-philip-ii">✓</button></div>
+    <p class="blurb">For centuries this was catalogued as the work of a male court painter; the Prado now gives it back to Sofonisba Anguissola, the Cremonese noblewoman who came to the Spanish court in 1559 as painter and lady-in-waiting to Philip II's third wife, Elisabeth of Valois. It is the image of Philip most people know: the bureaucrat-king of El Escorial in sober black, the rosary in his hand. X-rays show she changed her mind as she worked, replacing a voluminous cape with a light silk one.</p>
+    <p class="look"><b>Look for</b> the restraint — black on black, one white ruff — that became the uniform of the Spanish court for a century; Velázquez's sitters still wear it.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>4 of 13</span> Floor 1 · Rooms 25, 27, 42, 44</p>
+  <h2 id="s-venice">Titian &amp; Venice</h2>
+  <p class="intro">Titian was the Habsburgs' painter the way Velázquez would later be Philip IV's: Charles V made him a count palatine, and Philip II commissioned from him the poesie, mythologies painted as poems for the eye. Spain ended up owning more Titians than anyone, and the next century of Spanish painting was learned in front of them — Velázquez and Rubens both copied here. The great Titian portrait is in the Central Gallery; the mythologies are in Rooms 42 and 44.</p>
+  <article class="work" id="w-charles-v-at-muhlberg">
+  <img src="img/charles-v-at-muhlberg.jpg" width="768" height="911" loading="lazy" decoding="async" alt="A man in gleaming armour with a lance rides a dark horse in a red caparison out of a wood, under a stormy evening sky.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 27</p>
+      <h3>Emperor Charles V at Mühlberg</h3>
+      <p class="maker">Titian, 1548</p>
+      <p class="meta">Oil on canvas · P000410 · <a href="https://www.museodelprado.es/en/the-collection/art-work/emperor-charles-v-at-muhlberg/e7c91aaa-b849-478c-a857-0bb58a6b6729" aria-label="Emperor Charles V at Mühlberg on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Emperor Charles V at Mühlberg as seen" aria-pressed="false" data-id="charles-v-at-muhlberg">✓</button></div>
+    <p class="blurb">In April 1547 Charles V defeated the Protestant princes of the Schmalkaldic League at Mühlberg on the Elbe. Titian, summoned to Augsburg, painted the victory without a battle: one man, one horse, a lance, at dusk, alone. It is an image of the Christian knight rather than of a gouty, exhausted 47-year-old, and it became the model for every royal equestrian portrait afterwards — Velázquez's included. It was damaged in the fire at the Pardo palace in 1604 and repaired.</p>
+    <p class="look"><b>Look for</b> the armour: it survives, and is displayed in the Royal Armoury at the Royal Palace, about half an hour's walk from here.</p>
+  </div>
+  </article>
+  <article class="work" id="w-the-andrians">
+  <img src="img/the-andrians.jpg" width="768" height="694" loading="lazy" decoding="async" alt="Islanders dance, drink and lie about under trees by the sea; a nude woman sleeps in the lower right corner; a ship sails in the distance.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 42</p>
+      <h3>The Andrians</h3>
+      <p class="maker">Titian, 1523–1526</p>
+      <p class="meta">Oil on canvas · P000418 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-andrians/c5309744-5826-48ac-890e-038336907c52" aria-label="The Andrians on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Andrians as seen" aria-pressed="false" data-id="the-andrians">✓</button></div>
+    <p class="blurb">On the island of Andros, the ancient writer Philostratus said, Bacchus made a river run with wine. Titian painted its inhabitants for the 'alabaster room' of Duke Alfonso d'Este in Ferrara, alongside Bellini and his own Bacchus and Ariadne, now in London. The canvases were carried off to Rome in 1598 and reached Philip IV in the 1630s. In Madrid they became a school: Rubens copied this one in 1628–29, and Velázquez's Triumph of Bacchus, a few rooms away, answers it.</p>
+    <p class="look"><b>Look for</b> the sheet of music in the foreground — a French canon, 'Qui boyt et ne reboyt, il ne scet que boyre soit' (he who drinks and does not drink again does not know what drinking is), attributed to Adrian Willaert, chapel master of St Mark's.</p>
+  </div>
+  </article>
+  <article class="work" id="w-venus-organist">
+  <img src="img/venus-organist.jpg" width="768" height="462" loading="lazy" decoding="async" alt="A nude Venus reclines on a red couch with a small dog; a young man at an organ twists round to stare at her; a garden avenue behind.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 44</p>
+      <h3>Venus with an Organist and a Dog</h3>
+      <p class="maker">Titian, c. 1550</p>
+      <p class="meta">Oil on canvas · P000420 · <a href="https://www.museodelprado.es/en/the-collection/art-work/venus-with-an-organist-and-a-dog/3318ce42-8836-4867-acf7-276e1870294c" aria-label="Venus with an Organist and a Dog on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Venus with an Organist and a Dog as seen" aria-pressed="false" data-id="venus-organist">✓</button></div>
+    <p class="blurb">Titian's workshop made several versions of this composition, and the Prado owns two. The usual reading is philosophical rather than merely erotic: Renaissance Neoplatonists argued over which sense leads the soul to beauty, sight or hearing, and here the musician is caught between them. Behind, a formal avenue runs to a fountain and a couple strolls — the world going on while the young man forgets his instrument.</p>
+    <p class="look"><b>Look for</b> the organist's hands, still on the keys, while his body twists round to look.</p>
+  </div>
+  </article>
+  <article class="work" id="w-danae">
+  <img src="img/danae.jpg" width="768" height="547" loading="lazy" decoding="async" alt="A nude woman lies on white sheets gazing upward at a golden cloud raining coins; an old servant holds out her apron to catch them.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 44</p>
+      <h3>Danaë and the Shower of Gold</h3>
+      <p class="maker">Titian, c. 1560–1565</p>
+      <p class="meta">Oil on canvas · P000425 · <a href="https://www.museodelprado.es/en/the-collection/art-work/danae-and-the-shower-of-gold/0da1e69e-4d1d-4f25-b41a-bac3c0eb6a3c" aria-label="Danaë and the Shower of Gold on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Danaë and the Shower of Gold as seen" aria-pressed="false" data-id="danae">✓</button></div>
+    <p class="blurb">Danaë's father locked her in a tower; Jupiter entered as a shower of gold. Titian's first Danaë for Philip II opened the series of poesie in 1553 — that canvas is now at Apsley House in London, captured with Joseph Bonaparte's baggage after the battle of Vitoria in 1813. This later version adds the old nurse, who turns divine love into cash and holds out her apron for the coins. Look at the paint: late Titian, applied with the brush and, it was said, with his fingers.</p>
+    <p class="look"><b>Look for</b> the two women's faces — one upturned and dissolving into the light, one sharp and greedy — and the small dog asleep at the foot of the bed.</p>
+  </div>
+  </article>
+  <article class="work" id="w-washing-of-the-feet">
+  <img src="img/washing-of-the-feet.jpg" width="768" height="298" loading="lazy" decoding="async" alt="A very wide canvas: apostles round a table pull off their stockings across a chequered floor; Christ kneels at far right; ruins and a canal behind.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 25</p>
+      <h3>The Washing of the Feet</h3>
+      <p class="maker">Jacopo Tintoretto, 1548–1549</p>
+      <p class="meta">Oil on canvas · P002824 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-washing-of-the-feet/77d1fd63-1918-40b7-a79e-6d427e19bed8" aria-label="The Washing of the Feet on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Washing of the Feet as seen" aria-pressed="false" data-id="washing-of-the-feet">✓</button></div>
+    <p class="blurb">More than five metres wide, painted by the young Tintoretto for a side wall of the Venetian church of San Marcuola. Christ is not in the centre: he kneels at the far right, washing Peter's feet before the Last Supper, while the middle of the picture is an empty chequered floor running back to a stage set of classical buildings and a canal — a lesson in perspective as theatre. Charles I of England owned it; Philip IV bought it at the sale of his collection and sent it to the sacristy of El Escorial.</p>
+    <p class="look"><b>Look for</b> the apostles' comic struggle with their hose and boots on the left — and try the picture from an angle, as it was first seen, as well as head-on.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>5 of 13</span> Floor 1 · Rooms 8B, 9B</p>
+  <h2 id="s-greco">El Greco</h2>
+  <p class="intro">Domenikos Theotokopoulos trained as an icon painter in Venetian Crete, studied Titian in Venice and Michelangelo in Rome, and came to Spain in the 1570s hoping to work at El Escorial. Philip II disliked the altarpiece he ordered from him, so the Greek stayed in Toledo for the rest of his life and became the most original painter of the age. These rooms run from his first Toledo commission to the picture he painted for his own tomb.</p>
+  <article class="work" id="w-nobleman-hand-on-chest">
+  <img src="img/nobleman-hand-on-chest.jpg" width="768" height="984" loading="lazy" decoding="async" alt="A thin bearded man in black with a white ruff looks out, his right hand spread over his chest; a gilt sword hilt shows at the lower right.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 8B</p>
+      <h3>The Nobleman with his Hand on his Chest</h3>
+      <p class="maker">El Greco, c. 1580</p>
+      <p class="meta">Oil on canvas · P000809 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-nobleman-with-his-hand-on-his-chest/9cb73bdf-66e8-4826-a79c-5de2b15a1da6" aria-label="The Nobleman with his Hand on his Chest on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Nobleman with his Hand on his Chest as seen" aria-pressed="false" data-id="nobleman-hand-on-chest">✓</button></div>
+    <p class="blurb">The emblem of the Spanish gentleman, painted by a Greek. The sitter is unknown; romantics wanted him to be Cervantes, and the Prado considers the Marquis of Montemayor, a Toledo notable, the most convincing candidate. The gesture may be an oath, a declaration of honour, or simply sincerity. An early Toledo portrait, almost severe — El Greco's mannerisms are reserved for one long hand. Its cleaning in 1996 lightened the background and caused a public row.</p>
+    <p class="look"><b>Look for</b> the middle and ring fingers pressed together — an El Greco signature — and the gold of the sword hilt at the edge, the only hint of rank.</p>
+  </div>
+  </article>
+  <article class="work" id="w-holy-trinity">
+  <img src="img/holy-trinity.jpg" width="577" height="1000" loading="lazy" decoding="async" alt="A grey-bearded God the Father holds the slumped pale body of the dead Christ among angels on clouds; the dove hovers above.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 8B</p>
+      <h3>The Holy Trinity</h3>
+      <p class="maker">El Greco, 1577–1579</p>
+      <p class="meta">Oil on canvas · P000824 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=el+greco+trinity" aria-label="The Holy Trinity on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Holy Trinity as seen" aria-pressed="false" data-id="holy-trinity">✓</button></div>
+    <p class="blurb">Painted for the top of the high altarpiece of Santo Domingo el Antiguo in Toledo, El Greco's first big Spanish commission. The ingredients are borrowed: the composition from a Dürer woodcut, the heavy, muscular Christ from Michelangelo, whose work El Greco had studied — and criticised — in Rome. But the colours, acid yellow, pink and green, are already his own, and so is the weightlessness of the angels. It was meant to be seen from far below.</p>
+    <p class="look"><b>Look for</b> the Father's face: not triumphant but grieving, bent over the body like a mourner.</p>
+  </div>
+  </article>
+  <article class="work" id="w-adoration-of-the-shepherds">
+  <img src="img/adoration-of-the-shepherds.jpg" width="557" height="1000" loading="lazy" decoding="async" alt="A tall dark canvas: Mary and the shepherds kneel around the glowing Christ Child; angels swirl above in streaks of light.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 9B</p>
+      <h3>The Adoration of the Shepherds</h3>
+      <p class="maker">El Greco, 1612–1614</p>
+      <p class="meta">Oil on canvas · P002988 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-adoration-of-the-shepherds/4fb170c0-d4cf-4c3e-8293-a8d7152aff78" aria-label="The Adoration of the Shepherds on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Adoration of the Shepherds as seen" aria-pressed="false" data-id="adoration-of-the-shepherds">✓</button></div>
+    <p class="blurb">Thirty-five years after The Trinity, and painted for El Greco's own burial chapel in the same Toledo convent. He died in 1614. Everything solid has gone: bodies stretch and flicker like flames, space is a dark well, and the only light source is the Child. This is late El Greco at his most extreme — the style that baffled the eighteenth century and that Picasso, Cézanne and the German Expressionists rediscovered.</p>
+    <p class="look"><b>Look for</b> the light: it comes from the Child himself and catches the faces from below, like a candle held up in the dark.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>6 of 13</span> Floor 1 · Rooms 7A, 9, 10A, 16</p>
+  <h2 id="s-golden">Caravaggio &amp; the Spanish Golden Age</h2>
+  <p class="intro">Naples was a Spanish possession, and through it Caravaggio's discovery — real bodies, raking light, darkness everywhere else — reached Spain and became its seventeenth-century style. Ribera, a Valencian, painted it in Naples; Zurbarán turned it into silence in Seville; Murillo softened it into sweetness. Velázquez, in the next rooms, started there too.</p>
+  <article class="work" id="w-david-goliath">
+  <img src="img/david-goliath.jpg" width="768" height="866" loading="lazy" decoding="async" alt="In darkness, a boy bends over the huge severed head of a bearded man on the ground, tying its hair with a cord, light falling on his back.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 7A</p>
+      <h3>David with the Head of Goliath</h3>
+      <p class="maker">Caravaggio, c. 1600</p>
+      <p class="meta">Oil on canvas · P000065 · <a href="https://www.museodelprado.es/en/the-collection/art-work/david-with-the-head-of-goliath/c3895900-73d4-4257-97fb-240e3aaf0402" aria-label="David with the Head of Goliath on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark David with the Head of Goliath as seen" aria-pressed="false" data-id="david-goliath">✓</button></div>
+    <p class="blurb">No victory pose: David is a working boy, bent over the job of tying the giant's hair so the head can be carried. The light hits his shoulder and Goliath's face; everything else falls into black. This is the method that reached Spain through Spanish Naples and shaped a century of Spanish painting. A restoration finished in 2023 removed yellowed varnish and brought back the original contrast of light and dark, revealing details that had been hidden.</p>
+    <p class="look"><b>Look for</b> Goliath's open mouth and the diagonal from his head up David's arm to his shoulder — the whole picture is one line.</p>
+  </div>
+  </article>
+  <article class="work" id="w-martyrdom-saint-philip">
+  <img src="img/martyrdom-saint-philip.jpg" width="768" height="770" loading="lazy" decoding="async" alt="Workmen haul a nearly naked man up onto a cross-beam with ropes, against a bright blue sky; onlookers watch from the left.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 9</p>
+      <h3>The Martyrdom of Saint Philip</h3>
+      <p class="maker">Jusepe de Ribera, 1639</p>
+      <p class="meta">Oil on canvas · P001101 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-martyrdom-of-saint-philip/a221ea0e-d38c-4018-be83-af9119458701" aria-label="The Martyrdom of Saint Philip on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Martyrdom of Saint Philip as seen" aria-pressed="false" data-id="martyrdom-saint-philip">✓</button></div>
+    <p class="blurb">Ribera, a Valencian who spent his whole career in Spanish Naples, painted this very probably for Philip IV, whose name-saint this is. For a long time it was called a Bartholomew; it shows the apostle Philip being hoisted onto the cross. It is less a scene of agony than of labour: three men strain at ropes and timber, the saint's body is heavy, real, a working weight. Velázquez, who met Ribera in Naples, learned from exactly this kind of flesh.</p>
+    <p class="look"><b>Look for</b> the saint's face, turned up into the light, and the ordinary bystanders at left who have stopped to watch.</p>
+  </div>
+  </article>
+  <article class="work" id="w-zurbaran-still-life">
+  <img src="img/zurbaran-still-life.jpg" width="768" height="416" loading="lazy" decoding="async" alt="Four vessels in a row on a dark ledge against black: a gilt cup on a plate, a white jug, a red clay vase and a white jar on a plate.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 10A</p>
+      <h3>Still Life with Vessels</h3>
+      <p class="maker">Francisco de Zurbarán, c. 1650</p>
+      <p class="meta">Oil on canvas · P002803 · <a href="https://www.museodelprado.es/en/the-collection/art-work/still-life-with-vessels/bdd71dfb-cde5-440e-87a2-48d8c64060dd" aria-label="Still Life with Vessels on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Still Life with Vessels as seen" aria-pressed="false" data-id="zurbaran-still-life">✓</button></div>
+    <p class="blurb">Four pots in a row, and one of the most silent pictures ever painted. Zurbarán, the painter of Seville's monks, gives a pewter plate and cup, a white water jug from Triana, a red clay vase from the Americas and another jar the same grave attention he gives his saints. Many see the row as an offering on an altar; others simply as a study of materials — metal, glazed and unglazed clay — in a single light. It came to the Prado in 1940 with the Cambó bequest; a near-identical version is in Barcelona.</p>
+    <p class="look"><b>Look for</b> the shadows and reflections between the objects — each one touches its neighbour only through the light.</p>
+  </div>
+  </article>
+  <article class="work" id="w-immaculate-venerables">
+  <img src="img/immaculate-venerables.jpg" width="682" height="1000" loading="lazy" decoding="async" alt="The young Virgin in white and blue floats on a crescent moon, eyes raised, borne up by a swarm of small cherubs in a golden sky.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 16</p>
+      <h3>The Immaculate Conception of Los Venerables</h3>
+      <p class="maker">Bartolomé Esteban Murillo, 1660–1665</p>
+      <p class="meta">Oil on canvas · P002809 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-immaculate-conception-of-los-venerables/76179d81-beaf-4f9e-9a05-ef92340a00d1" aria-label="The Immaculate Conception of Los Venerables on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Immaculate Conception of Los Venerables as seen" aria-pressed="false" data-id="immaculate-venerables">✓</button></div>
+    <p class="blurb">The Seville of Murillo was the stronghold of the cult of the Immaculate Conception, and this is its definitive image: a young girl in white and blue, on the moon, carried by a cloud of child-angels. It also has the most dramatic biography in the room. It hung in Seville's Hospital de los Venerables until Napoleon's Marshal Soult took it in 1813; the Louvre bought it from his heirs in 1852 for what was then the highest price ever paid for a painting; it came back to Spain in 1941 in an exchange with France.</p>
+    <p class="look"><b>Look for</b> the cherubs at her feet — each one a real Sevillian child, painted from life.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>7 of 13</span> Floor 1 · Rooms 10, 11, 14</p>
+  <h2 id="s-velazquez1">Velázquez I: Seville to Rome</h2>
+  <p class="intro">Diego Velázquez (1599–1660) arrived in Madrid from Seville in 1623, was made Philip IV's painter at twenty-four and never left the king's service. Nearly all his major work stayed in the royal collection, which is why the Prado has around fifty of his paintings and every other museum has crumbs. This first group runs from his Madrid debut through his first trip to Italy (1629–31), when he looked hard at Titian and at the ancient statues.</p>
+  <article class="work" id="w-triumph-of-bacchus">
+  <img src="img/triumph-of-bacchus.jpg" width="768" height="560" loading="lazy" decoding="async" alt="A pale half-naked young Bacchus crowns a kneeling soldier with vine leaves while a group of weathered Spanish peasants grin and drink.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 10</p>
+      <h3>The Triumph of Bacchus ('The Drinkers')</h3>
+      <p class="maker">Diego Velázquez, 1628–1629</p>
+      <p class="meta">Oil on canvas · P001170 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-feast-of-bacchus/4a23d5e2-9fd4-496b-806b-0f8ba913b3d8" aria-label="The Triumph of Bacchus ('The Drinkers') on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Triumph of Bacchus ('The Drinkers') as seen" aria-pressed="false" data-id="triumph-of-bacchus">✓</button></div>
+    <p class="blurb">Myth meets tavern. The god of wine, pale and soft, crowns a kneeling soldier, while real men from the streets of Madrid — leathery, unshaven, delighted — crowd in with their bowls. Madrid has always called it Los Borrachos, 'the drunks'. Velázquez painted it just before his first trip to Italy, when Rubens was in Madrid; you can read it as a joke on mythology, or as the opposite: the gods' gift brought down to the poor, who need it most.</p>
+    <p class="look"><b>Look for</b> the drinker in the hat grinning straight out at you, bowl in hand — the real host of the picture.</p>
+  </div>
+  </article>
+  <article class="work" id="w-vulcans-forge">
+  <img src="img/vulcans-forge.jpg" width="768" height="597" loading="lazy" decoding="async" alt="In a dark smithy, a young god in orange with a laurel crown and halo speaks to a stunned blacksmith and four near-naked workmen.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 11</p>
+      <h3>Vulcan's Forge</h3>
+      <p class="maker">Diego Velázquez, 1630</p>
+      <p class="meta">Oil on canvas · P001171 · <a href="https://www.museodelprado.es/en/the-collection/art-work/vulcans-forge/84a0240d-b41a-404d-8433-6e4e2efd21ab" aria-label="Vulcan's Forge on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Vulcan's Forge as seen" aria-pressed="false" data-id="vulcans-forge">✓</button></div>
+    <p class="blurb">Painted in Rome, where Velázquez spent a year drawing ancient statues, and you can see it in the workmen's classical bodies. The god Apollo, glowing, has just walked into the forge to tell Vulcan that his wife Venus is sleeping with Mars. The picture is the instant after the words: the hammering has stopped, and the news travels from face to face around the room. Myth as a scene of everyday humiliation.</p>
+    <p class="look"><b>Look for</b> Vulcan's face, and then each workman's in turn — every reaction is different.</p>
+  </div>
+  </article>
+  <article class="work" id="w-villa-medici">
+  <img src="img/villa-medici.jpg" width="768" height="871" loading="lazy" decoding="async" alt="A garden loggia with a boarded-up arch under tall dark cypresses; a cloth hangs over the balustrade and small figures stand below.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 11</p>
+      <h3>View of the Garden of the Villa Medici, Rome</h3>
+      <p class="maker">Diego Velázquez, c. 1630</p>
+      <p class="meta">Oil on canvas · P001210 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=villa+medici+velazquez" aria-label="View of the Garden of the Villa Medici, Rome on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark View of the Garden of the Villa Medici, Rome as seen" aria-pressed="false" data-id="villa-medici">✓</button></div>
+    <p class="blurb">Tiny, and centuries ahead of itself. In Rome Velázquez stayed at the Villa Medici, and this is one of two small views of its gardens painted from life, in the open air, at a time when landscape was assembled in the studio. Quick strokes, broken light on stone and leaves, nothing heroic: a boarded-up arch, a sheet hung over a balustrade, two men talking. Its date is debated — this trip or his second Roman stay in 1649–50 — but no one disputes its freshness.</p>
+    <p class="look"><b>Look for</b> the brushwork from close up, then from five steps back: the sketch turns into air.</p>
+  </div>
+  </article>
+  <article class="work" id="w-christ-crucified">
+  <img src="img/christ-crucified.jpg" width="670" height="1000" loading="lazy" decoding="async" alt="A pale, calm Christ on the cross against a flat dark ground, feet resting on a ledge, his hair falling over half his face.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 14</p>
+      <h3>Christ Crucified</h3>
+      <p class="maker">Diego Velázquez, c. 1632</p>
+      <p class="meta">Oil on canvas · P001167 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=velazquez+christ+crucified" aria-label="Christ Crucified on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Christ Crucified as seen" aria-pressed="false" data-id="christ-crucified">✓</button></div>
+    <p class="blurb">No landscape, no mourners, no drama: a body of classical beauty against a flat dark ground, the head fallen forward and half hidden by its own hair. It was painted for the Benedictine convent of San Plácido in Madrid and is an act of complete stillness. Velázquez follows the rules of his teacher and father-in-law Francisco Pacheco: four nails, not three, and the feet resting side by side. The philosopher Miguel de Unamuno wrote a book-length poem about it, El Cristo de Velázquez.</p>
+    <p class="look"><b>Look for</b> the shadow of the body on the cross, and the hair: legend says Velázquez covered half the face because he could not finish it.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>8 of 13</span> Floor 1 · Rooms 9A, 12, 15A</p>
+  <h2 id="s-velazquez2">Velázquez II: Painter to the King</h2>
+  <p class="intro">From the 1630s Velázquez painted for the king's new palace of the Buen Retiro and his hunting lodges, and rose as a courtier until he was made a Knight of Santiago in 1659, a year before his death. Room 12, the oval room at the heart of the building, is the Prado's shrine: Las Meninas, with princes, jesters and philosophers around it.</p>
+  <article class="work" id="w-surrender-of-breda">
+  <img src="img/surrender-of-breda.jpg" width="768" height="634" loading="lazy" decoding="async" alt="Two commanders meet in the centre, one handing a key to the other; soldiers and a forest of upright lances fill the right; a smoky plain behind.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 9A</p>
+      <h3>The Surrender of Breda ('The Lances')</h3>
+      <p class="maker">Diego Velázquez, c. 1635</p>
+      <p class="meta">Oil on canvas · P001172 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-surrender-of-breda/0cc7577a-51d9-44fd-b4d5-4dba8d9cb13a" aria-label="The Surrender of Breda ('The Lances') on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Surrender of Breda ('The Lances') as seen" aria-pressed="false" data-id="surrender-of-breda">✓</button></div>
+    <p class="blurb">In June 1625 the Dutch fortress of Breda surrendered to Spanish troops under the Genoese general Ambrogio Spinola. Ten years later Velázquez painted the handover of the keys for the Hall of Realms of Philip IV's new Buen Retiro palace, among twelve victories of the reign. He makes it a scene of courtesy: Justin of Nassau begins to kneel and Spinola stops him with a hand on his shoulder. Behind the victors, the upright lances that give the picture its Spanish name; behind the defeated, a scrappy few pikes. The Hall of Realms still stands, a few minutes' walk from here, being converted into Prado galleries.</p>
+    <p class="look"><b>Look for</b> Spinola's hand on his enemy's shoulder — and the man in the hat at the far right edge, often said to be Velázquez himself.</p>
+  </div>
+  </article>
+  <article class="work" id="w-baltasar-carlos">
+  <img src="img/baltasar-carlos.jpg" width="768" height="926" loading="lazy" decoding="async" alt="A small boy in pink sash and black hat rides a rearing round-bellied pony towards the viewer, against snowy blue mountains.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 12</p>
+      <h3>Prince Baltasar Carlos on Horseback</h3>
+      <p class="maker">Diego Velázquez, 1634–1635</p>
+      <p class="meta">Oil on canvas · P001180 · <a href="https://www.museodelprado.es/en/the-collection/art-work/prince-baltasar-carlos-on-horseback/5d224aa8-4d2c-47e0-b3b2-3ea37229cdcb" aria-label="Prince Baltasar Carlos on Horseback on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Prince Baltasar Carlos on Horseback as seen" aria-pressed="false" data-id="baltasar-carlos">✓</button></div>
+    <p class="blurb">Philip IV's heir at about five, made for the Hall of Realms, where it hung above a door between the equestrian portraits of his parents. That explains the strange pony: seen from below, the barrel belly that looks swollen at eye level becomes the right shape. Behind him, the Guadarrama mountains north of Madrid, painted with a lightness that looks modern. The prince died at sixteen in 1646, and with him the Habsburgs' best hope; the dynasty ended with his sickly half-brother.</p>
+    <p class="look"><b>Look for</b> crouch a little and look up at the horse, as the court did.</p>
+  </div>
+  </article>
+  <article class="work" id="w-aesop">
+  <img src="img/aesop.jpg" width="509" height="1000" loading="lazy" decoding="async" alt="Full-length portrait of a tired, heavy-faced old man in a shabby brown coat, holding a book; a bucket and a hide lie at his feet.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 12</p>
+      <h3>Aesop</h3>
+      <p class="maker">Diego Velázquez, c. 1638</p>
+      <p class="meta">Oil on canvas · P001206 · <a href="https://www.museodelprado.es/en/the-collection/art-work/aesop/014e0cb2-128c-42d7-a380-df7527e734ce" aria-label="Aesop on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Aesop as seen" aria-pressed="false" data-id="aesop">✓</button></div>
+    <p class="blurb">Painted with its pair, Menippus, for the king's hunting lodge, the Torre de la Parada. The ancient fabulist, a former slave, is shown as a poor man of Madrid, in a worn coat, with the face of someone who has seen everything and expects nothing — a philosopher as a porter. Velázquez painted the court's jesters and dwarfs with the same seriousness; the hierarchy of dignity in his work is never the hierarchy of rank.</p>
+    <p class="look"><b>Look for</b> the face: heavy-lidded, tired, ironic — and the bucket and hide at his feet, props whose meaning is still argued over.</p>
+  </div>
+  </article>
+  <article class="work" id="w-mars">
+  <img src="img/mars.jpg" width="514" height="1000" loading="lazy" decoding="async" alt="A naked, moustached man in a crested helmet sits slumped on a bed with a blue cloth over his lap, armour piled at his feet.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 15A</p>
+      <h3>Mars</h3>
+      <p class="maker">Diego Velázquez, c. 1638</p>
+      <p class="meta">Oil on canvas · P001208 · <a href="https://www.museodelprado.es/en/the-collection/art-work/mars/ec55aa06-b32e-481e-8ea6-22deaf2e9a25" aria-label="Mars on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Mars as seen" aria-pressed="false" data-id="mars">✓</button></div>
+    <p class="blurb">The god of war, off duty and deflated: naked but for a helmet, moustached like a Spanish soldier, sitting on the edge of a bed with his armour on the floor. Some see a melancholy on the state of a Spain worn down by endless war; others the morning after his affair with Venus — the story you just saw announced in Vulcan's Forge. Painted for the same hunting lodge as Aesop, and one of very few male nudes in Velázquez's work.</p>
+    <p class="look"><b>Look for</b> the shadow of the helmet across his eyes: the god cannot be seen to be looking at anything.</p>
+  </div>
+  </article>
+  <article class="work" id="w-the-spinners">
+  <img src="img/the-spinners.jpg" width="768" height="530" loading="lazy" decoding="async" alt="Women spin and wind wool in a dim workshop; through an arch behind them, ladies stand in a bright alcove before a large tapestry.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 15A</p>
+      <h3>The Spinners, or the Fable of Arachne</h3>
+      <p class="maker">Diego Velázquez, 1655–1660</p>
+      <p class="meta">Oil on canvas · P001173 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-spinners-or-the-fable-of-arachne/3d8e510d-2acf-4efb-af0c-8ffd665acd8d" aria-label="The Spinners, or the Fable of Arachne on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Spinners, or the Fable of Arachne as seen" aria-pressed="false" data-id="the-spinners">✓</button></div>
+    <p class="blurb">For a long time read as a genre scene in the royal tapestry works, it is a myth hidden in plain sight. In the bright alcove at the back, Pallas Athena, helmeted, confronts the weaver Arachne, who dared to challenge the goddess and was turned into a spider. The tapestry behind them reproduces Titian's Rape of Europa, which hung in Philip IV's palace — a painting about art, rivalry and copying, made in the same years as Las Meninas. The canvas was enlarged in the eighteenth century; since 2021 its frame masks those additions.</p>
+    <p class="look"><b>Look for</b> the spinning wheel at left: Velázquez painted it moving — the spokes are a blur of light.</p>
+  </div>
+  </article>
+  <article class="work" id="w-las-meninas">
+  <img src="img/las-meninas.jpg" width="768" height="884" loading="lazy" decoding="async" alt="A little blonde princess in a wide silver dress is attended by maids, dwarfs and a dog, while the painter stands at a huge canvas at left.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 12</p>
+      <h3>Las Meninas</h3>
+      <p class="maker">Diego Velázquez, 1656</p>
+      <p class="meta">Oil on canvas · P001174 · <a href="https://www.museodelprado.es/en/the-collection/art-work/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f" aria-label="Las Meninas on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Las Meninas as seen" aria-pressed="false" data-id="las-meninas">✓</button></div>
+    <p class="blurb">Five-year-old Infanta Margarita in the Alcázar palace, with her maids of honour (the meninas), a chaperone and a guard, two court dwarfs, Mari Bárbola and Nicolasito, and a mastiff; in the doorway the queen's chamberlain; at the canvas, Velázquez himself. Who is he painting? The mirror at the back shows Philip IV and Queen Mariana, standing where you stand. It is a picture about seeing and being seen, about painting's place at court, and it has been argued over since Luca Giordano called it 'the theology of painting'. The red cross of Santiago on Velázquez's chest was added after he was knighted in 1659 — legend says by the king.</p>
+    <p class="look"><b>Look for</b> the mirror at the back — then step back to the middle of the room and notice that you are standing where the king and queen stood.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>9 of 13</span> Floor 1 · Rooms 16B, 28, 29</p>
+  <h2 id="s-rubens">Rubens &amp; Van Dyck</h2>
+  <p class="intro">The Prado has the largest Rubens collection in the world, because Philip IV was his greatest patron and bought heavily from his estate after his death in 1640. Rubens was a diplomat as well as a painter; he spent eight months in Madrid in 1628–29, copied the royal Titians and met the young Velázquez. Flesh, colour, abundance — and a lesson the young Velázquez took.</p>
+  <article class="work" id="w-endymion-porter">
+  <img src="img/endymion-porter.jpg" width="768" height="634" loading="lazy" decoding="async" alt="Oval double portrait: a sturdy man in pale silver satin beside a slighter man in black, the painter, with a landscape behind.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 16B</p>
+      <h3>Endymion Porter and Anthony van Dyck</h3>
+      <p class="maker">Anthony van Dyck, c. 1633</p>
+      <p class="meta">Oil on canvas · P001489 · <a href="https://www.museodelprado.es/en/the-collection/art-work/endymion-porter-and-anthony-van-dyck/4f405157-fc39-45bd-a82f-6e70e978968b" aria-label="Endymion Porter and Anthony van Dyck on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Endymion Porter and Anthony van Dyck as seen" aria-pressed="false" data-id="endymion-porter">✓</button></div>
+    <p class="blurb">Van Dyck's only double portrait of himself with somebody else. Endymion Porter, in silvery satin, was a courtier of Charles I and one of the agents who bought pictures for the king's collection — a patron and a friend. Van Dyck, in black, slight and elegant, sits just behind him. An oval, an embrace in all but touch, and a record of the art world of the 1630s: the dealer-courtier and the painter who taught the English aristocracy how to look.</p>
+    <p class="look"><b>Look for</b> Van Dyck's hand resting on the rock beside his friend — stone, an old emblem of steadfastness.</p>
+  </div>
+  </article>
+  <article class="work" id="w-rubens-adoration">
+  <img src="img/rubens-adoration.jpg" width="768" height="537" loading="lazy" decoding="async" alt="A crowded night scene: kings in red and gold robes kneel before the Child in Mary's lap amid torchlight, soldiers, camels and servants.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 28</p>
+      <h3>The Adoration of the Magi</h3>
+      <p class="maker">Peter Paul Rubens, 1609 and 1628–1629</p>
+      <p class="meta">Oil on canvas · P001638 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-adoration-of-the-magi/b6440da1-0c0c-4ead-84b7-f5a017e2fd17" aria-label="The Adoration of the Magi on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Adoration of the Magi as seen" aria-pressed="false" data-id="rubens-adoration">✓</button></div>
+    <p class="blurb">Two paintings in one. Rubens painted it in 1609 for Antwerp's town hall, where the truce with Spain was negotiated; it was soon given to a Spanish envoy and reached the royal collection. When Rubens came to Madrid in 1628–29 and found it in the palace, he reworked it, adding strips of canvas at the top and right and repainting much of it in his mature manner. A painter correcting his younger self, twenty years on, in his client's house.</p>
+    <p class="look"><b>Look for</b> the rider in a gold chain at the right edge, added when Rubens enlarged the canvas: usually identified as Rubens himself.</p>
+  </div>
+  </article>
+  <article class="work" id="w-three-graces">
+  <img src="img/three-graces.jpg" width="768" height="936" loading="lazy" decoding="async" alt="Three full-figured nude women stand arm in arm in a circle in a landscape, under a garland of flowers with a cupid fountain above.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 29</p>
+      <h3>The Three Graces</h3>
+      <p class="maker">Peter Paul Rubens, 1630–1635</p>
+      <p class="meta">Oil on oak panel · P001670 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-three-graces/145eadd9-0b54-4b2d-affe-09af370b6932" aria-label="The Three Graces on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Three Graces as seen" aria-pressed="false" data-id="three-graces">✓</button></div>
+    <p class="blurb">A painting Rubens made for himself and kept until he died; Philip IV bought it from his estate. The Graces — the companions of Venus, givers of charm and delight — stand in the ancient interlocking pose, but these bodies are not ancient: they are Flemish, soft, dimpled, alive. The Grace on the left is generally thought to have the features of Helena Fourment, the 16-year-old Rubens married in 1630 at fifty-three.</p>
+    <p class="look"><b>Look for</b> the hands and the gaze — three women connected only through touch and looking — and the thin veil that winds between them.</p>
+  </div>
+  </article>
+  <article class="work" id="w-garden-of-love">
+  <img src="img/garden-of-love.jpg" width="768" height="530" loading="lazy" decoding="async" alt="Elegant couples in silks sit and talk in a garden beside a rusticated stone portico; cupids fly overhead and nudge them together.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 29</p>
+      <h3>The Garden of Love</h3>
+      <p class="maker">Peter Paul Rubens, c. 1630–1635</p>
+      <p class="meta">Oil on canvas · P001690 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-love/8c9e39be-c70c-403a-a386-e7609e7af236" aria-label="The Garden of Love on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Garden of Love as seen" aria-pressed="false" data-id="garden-of-love">✓</button></div>
+    <p class="blurb">A celebration of his late marriage to Helena Fourment, painted for himself and bought by Philip IV after his death. Couples in fashionable silk court each other in a garden beside an architecture like the portico of Rubens's own house in Antwerp; cupids push a hesitant young woman towards the group. The Prado points out its kinship with Titian's bacchanals in Room 42: the same idea of love as a pagan feast, now in contemporary dress. It is the ancestor of Watteau's fêtes galantes a century later.</p>
+    <p class="look"><b>Look for</b> the stone statue of Venus on the right, water spouting from her breasts into the fountain.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>10 of 13</span> Floor 1 · Rooms 32, 38</p>
+  <h2 id="s-goyacourt">Goya at Court</h2>
+  <p class="intro">Francisco de Goya (1746–1828) rose from tapestry designer to First Court Painter in 1799, deaf since an illness in 1792–93, and the Prado holds the largest collection of his work anywhere. Upstairs here: the official Goya, painting a royal family and, for the king's chief minister, the most notorious nude in Spanish art. His war pictures and the Black Paintings are on Floor 0.</p>
+  <article class="work" id="w-family-of-carlos-iv">
+  <img src="img/family-of-carlos-iv.jpg" width="768" height="641" loading="lazy" decoding="async" alt="Thirteen royals in glittering court dress stand in a row, the queen at the centre with two children; the painter stands in shadow at left.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 32</p>
+      <h3>The Family of Carlos IV</h3>
+      <p class="maker">Francisco de Goya, 1800</p>
+      <p class="meta">Oil on canvas · P000726 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-family-of-carlos-iv/f47898fc-aa1c-48f6-a779-71759e417e74" aria-label="The Family of Carlos IV on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Family of Carlos IV as seen" aria-pressed="false" data-id="family-of-carlos-iv">✓</button></div>
+    <p class="blurb">Goya's first major work as First Court Painter, painted at Aranjuez and Madrid in 1800. Thirteen members of the royal family stand in a frieze, glittering with silk, sashes and decorations; Queen María Luisa takes the centre, the king stands slightly apart. Was it a satire? Almost certainly not — the family seem to have been pleased — and yet the faces are so unflattering that a quip often attributed to Théophile Gautier compared them to the corner grocer and his wife after winning the lottery. The young man in blue at left is the future Ferdinand VII; the woman beside him has turned her face away because his bride had not yet been chosen.</p>
+    <p class="look"><b>Look for</b> Goya himself in the shadows at far left, at a canvas we cannot see — a direct quotation of Las Meninas.</p>
+  </div>
+  </article>
+  <article class="work" id="w-naked-maja">
+  <img src="img/naked-maja.jpg" width="768" height="390" loading="lazy" decoding="async" alt="A nude young woman lies on a green couch with white pillows, hands behind her head, looking directly at the viewer.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 38</p>
+      <h3>The Naked Maja</h3>
+      <p class="maker">Francisco de Goya, 1795–1800</p>
+      <p class="meta">Oil on canvas · P000742 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-naked-maja/65953b93-323e-48fe-98cb-9d4b15852b18" aria-label="The Naked Maja on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Naked Maja as seen" aria-pressed="false" data-id="naked-maja">✓</button></div>
+    <p class="blurb">No goddess, no myth, no excuse: a contemporary woman, nude, looking straight back at the viewer. It belonged to Manuel Godoy, the king's chief minister, who kept it in a private cabinet together with Velázquez's Rokeby Venus. After Godoy's fall the Inquisition seized it and in 1815 summoned Goya to explain himself. Who modelled for it is unknown; the legend of the Duchess of Alba is just that.</p>
+    <p class="look"><b>Look for</b> her gaze — direct, unembarrassed — which is what made the picture a scandal more than the nudity.</p>
+  </div>
+  </article>
+  <article class="work" id="w-clothed-maja">
+  <img src="img/clothed-maja.jpg" width="768" height="386" loading="lazy" decoding="async" alt="The same young woman in the same pose, now dressed in a clinging white dress with a pink sash and a short gold jacket.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 38</p>
+      <h3>The Clothed Maja</h3>
+      <p class="maker">Francisco de Goya, 1800–1807</p>
+      <p class="meta">Oil on canvas · P000741 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-clothed-maja/a3121efc-6924-454c-8a9f-e4320f26d3d0" aria-label="The Clothed Maja on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Clothed Maja as seen" aria-pressed="false" data-id="clothed-maja">✓</button></div>
+    <p class="blurb">The same pose, dressed in the fashionable 'maja' costume — and somehow more provocative, the thin muslin following every line. The two pictures were recorded together in Godoy's collection; a much-repeated story says one hung over the other on a mechanism, so the nude could be revealed at will, but there is no evidence for it. Compare the brushwork: the clothed version is looser and quicker, painted a few years later.</p>
+    <p class="look"><b>Look for</b> the paint in the dress and the jacket — almost sketch-like next to the smooth flesh of her twin.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>11 of 13</span> Floor 2 · Rooms 76, 82, 90</p>
+  <h2 id="s-upstairs">Top floor: Goya's Cartoons, Rembrandt &amp; Clara Peeters</h2>
+  <p class="intro">Most visitors never climb to Floor 2, which is the point: it is the quiet part of the Prado. It has two parts — check the plan for the stairs to each. The north end holds Dutch and Flemish cabinet pictures (and, in Room 79B, the Dauphin's Treasure of jewelled vessels); the south end holds Goya's tapestry cartoons, the bright young Goya before deafness and war.</p>
+  <article class="work" id="w-the-parasol">
+  <img src="img/the-parasol.jpg" width="768" height="532" loading="lazy" decoding="async" alt="A young woman in a yellow skirt sits on the grass with a small dog on her lap while a young man holds a green parasol over her.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 90</p>
+      <h3>The Parasol</h3>
+      <p class="maker">Francisco de Goya, 1777</p>
+      <p class="meta">Oil on canvas (tapestry cartoon) · P000773 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-parasol/a230a80f-a899-4535-9e90-ad883bd096c5" aria-label="The Parasol on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Parasol as seen" aria-pressed="false" data-id="the-parasol">✓</button></div>
+    <p class="blurb">Goya at thirty-one, earning his living designing tapestries for the royal factory of Santa Bárbara. This cartoon — the full-size model the weavers copied — was one of a series of country scenes for the dining room of the Prince and Princess of Asturias, the future Carlos IV and María Luisa, whom he would paint as king and queen twenty-three years later. Light, fashionable, sunny: the Goya before deafness, war and the Black Paintings. Its low viewpoint suggests it was meant to hang above a window.</p>
+    <p class="look"><b>Look for</b> the green shade of the parasol thrown over her face and shoulder — a real study of reflected light.</p>
+  </div>
+  </article>
+  <article class="work" id="w-judith-banquet">
+  <img src="img/judith-banquet.jpg" width="768" height="714" loading="lazy" decoding="async" alt="A richly dressed young woman in gold brocade sits at a table, reaching for a shell cup offered by a kneeling maid; an old woman waits in shadow.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 76</p>
+      <h3>Judith at the Banquet of Holofernes</h3>
+      <p class="maker">Rembrandt, 1634</p>
+      <p class="meta">Oil on canvas · P002132 · <a href="https://www.museodelprado.es/en/the-collection/art-work/judith-at-the-banquet-of-holofernes/08f69e61-f7c5-43f9-a76d-b24fbdc63681" aria-label="Judith at the Banquet of Holofernes on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Judith at the Banquet of Holofernes as seen" aria-pressed="false" data-id="judith-banquet">✓</button></div>
+    <p class="blurb">The Prado's only painting by Rembrandt, signed and dated 1634, the year of his marriage to Saskia. For centuries it was called Artemisia — the widowed queen of Caria who drank her husband's ashes in wine — then Sophonisba, who drank poison; the Prado now identifies her as Judith at Holofernes's banquet, shortly before she beheads him. Whoever she is, the subject is the weight of a decision: a heavy, sumptuous young woman pausing, about to drink.</p>
+    <p class="look"><b>Look for</b> the brocade of her dress, built up so thickly in paint that it catches the light like real gold thread.</p>
+  </div>
+  </article>
+  <article class="work" id="w-clara-peeters">
+  <img src="img/clara-peeters.jpg" width="768" height="544" loading="lazy" decoding="async" alt="A table with a vase of flowers, a tall gilt goblet, a porcelain bowl of dried fruit, pretzels, a glass of red wine and a pewter jug.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 82</p>
+      <h3>Still Life with Flowers, a Silver-gilt Goblet, Dried Fruit, Sweetmeats, Bread Sticks, Wine and a Pewter Pitcher</h3>
+      <p class="maker">Clara Peeters, 1611</p>
+      <p class="meta">Oil on panel · P001620 · <a href="https://www.museodelprado.es/en/the-collection/art-work/still-life-with-flowers-a-silver-gilt-goblet/97a18fea-112a-417a-9a8a-6665a44cc331" aria-label="Still Life with Flowers, a Silver-gilt Goblet, Dried Fruit, Sweetmeats, Bread Sticks, Wine and a Pewter Pitcher on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Still Life with Flowers, a Silver-gilt Goblet, Dried Fruit, Sweetmeats, Bread Sticks, Wine and a Pewter Pitcher as seen" aria-pressed="false" data-id="clara-peeters">✓</button></div>
+    <p class="blurb">Clara Peeters, active in Antwerp in the 1610s, was one of the very first painters anywhere to specialise in still life, and one of the very few women of her time to build a career as a painter. In 2016 she became the first woman artist given a solo exhibition at the Prado. Everything here is about luxury and touch: Chinese porcelain, Venetian glass, gilt silver, sugar sweets, a vase of flowers that never bloomed in the same season.</p>
+    <p class="look"><b>Look for</b> her own face — tiny self-portraits reflected in the bosses of the gilt goblet and on the pewter jug.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>12 of 13</span> Floor 0 · Rooms 64, 66, 67</p>
+  <h2 id="s-goyawar">Goya: War &amp; the Black Paintings</h2>
+  <p class="intro">Napoleon's troops entered Spain in 1808 and six years of savage war followed. Goya lived through it in Madrid and painted it afterwards. In 1819 he bought a house by the Manzanares, the Quinta del Sordo, and covered two of its rooms with fourteen murals painted for nobody but himself. They were peeled off the walls and transferred to canvas in 1873–74, and donated to the State in 1881. Room 67 shows all fourteen together; see them last and slowly.</p>
+  <article class="work" id="w-second-of-may">
+  <img src="img/second-of-may.jpg" width="768" height="594" loading="lazy" decoding="async" alt="A chaotic street fight: Madrid civilians with knives drag turbaned cavalrymen from rearing horses; a wounded white horse in the centre.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 64</p>
+      <h3>The 2nd of May 1808 in Madrid ('The Fight against the Mamelukes')</h3>
+      <p class="maker">Francisco de Goya, 1814</p>
+      <p class="meta">Oil on canvas · P000748 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-2nd-of-may-1808-in-madrid-or-the-fight/57dacf2e-5d10-4ded-85aa-9ff6f741f6b1" aria-label="The 2nd of May 1808 in Madrid ('The Fight against the Mamelukes') on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The 2nd of May 1808 in Madrid ('The Fight against the Mamelukes') as seen" aria-pressed="false" data-id="second-of-may">✓</button></div>
+    <p class="blurb">On 2 May 1808 the people of Madrid rose against the French garrison. Goya painted the fight near the Puerta del Sol six years later, in 1814, when he proposed to the new government to commemorate 'the most notable and heroic actions of our glorious insurrection'. There are no heroes, only a knot of bodies: civilians with knives against Napoleon's Mamelukes, Egyptian cavalry of the Imperial Guard. Both canvases were damaged in a truck accident while being evacuated during the Civil War in 1938, and restored in 2008.</p>
+    <p class="look"><b>Look for</b> the faces on both sides — the Spanish attackers are as wild-eyed as the dying Mameluke.</p>
+  </div>
+  </article>
+  <article class="work" id="w-third-of-may">
+  <img src="img/third-of-may.jpg" width="768" height="586" loading="lazy" decoding="async" alt="At night, a man in a white shirt flings up his arms before a row of faceless French soldiers aiming rifles; corpses lie in blood beside him.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 64</p>
+      <h3>The 3rd of May 1808 in Madrid ('The Executions')</h3>
+      <p class="maker">Francisco de Goya, 1814</p>
+      <p class="meta">Oil on canvas · P000749 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=3rd+of+may+1808" aria-label="The 3rd of May 1808 in Madrid ('The Executions') on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The 3rd of May 1808 in Madrid ('The Executions') as seen" aria-pressed="false" data-id="third-of-may">✓</button></div>
+    <p class="blurb">The night after the rising, French firing squads executed prisoners on the hill of Príncipe Pío. Goya turns it into the first modern image of war: the soldiers are a machine with no faces; the victim, lit by a lantern on the ground, has a face, a white shirt and his arms flung wide like a crucifixion. The dead lie in front, the next to die cover their eyes behind. Manet copied the idea for his Execution of Maximilian, Picasso for Massacre in Korea; every war photograph of the last century owes it something.</p>
+    <p class="look"><b>Look for</b> the raised right palm of the man in white: a wound like a stigma.</p>
+  </div>
+  </article>
+  <article class="work" id="w-saturn">
+  <img src="img/saturn.jpg" width="545" height="1000" loading="lazy" decoding="async" alt="Out of the dark, a wild-eyed grey giant grips a headless, bloodied human body and bites into its arm.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 67</p>
+      <h3>Saturn</h3>
+      <p class="maker">Francisco de Goya, 1820–1823</p>
+      <p class="meta">Mural transferred to canvas · P000763 · <a href="https://www.museodelprado.es/en/the-collection/art-work/saturn/18110a75-b0e7-430c-bc73-2a4d55893bd6" aria-label="Saturn on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Saturn as seen" aria-pressed="false" data-id="saturn">✓</button></div>
+    <p class="blurb">Saturn, warned that one of his children would overthrow him, ate them as they were born. Goya painted it on the wall of the ground-floor dining room of his own house, facing a portrait of Leocadia Zorrilla, his companion. The Prado reads it as the fear of losing power; others read time devouring everything, or Spain devouring its own. Rubens painted the same myth for Philip IV, and that canvas is in the Prado too — Goya knew it. His version abandons every convention: no setting, no story, only hunger and terror in the eyes.</p>
+    <p class="look"><b>Look for</b> the eyes: Saturn looks more frightened than the victim.</p>
+  </div>
+  </article>
+  <article class="work" id="w-drowning-dog">
+  <img src="img/drowning-dog.jpg" width="589" height="1000" loading="lazy" decoding="async" alt="A tall ochre canvas almost entirely empty; at the bottom a small dog's head peers over a dark slope, looking up.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 67</p>
+      <h3>The Drowning Dog</h3>
+      <p class="maker">Francisco de Goya, 1820–1823</p>
+      <p class="meta">Mural transferred to canvas · P000767 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-drowning-dog/4ea6a3d1-00ee-49ee-b423-ab1c6969bca6" aria-label="The Drowning Dog on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Drowning Dog as seen" aria-pressed="false" data-id="drowning-dog">✓</button></div>
+    <p class="blurb">Almost nothing: a dog's head above a slope of dark earth or water, and a vast space of ochre. Whether the void is intended, or whether a background was lost when the murals were transferred to canvas, is still discussed. Either way it has become one of the most modern pictures in the building — the painter Antonio Saura called it the most beautiful painting in the world — and the single most affecting image of helplessness Goya made.</p>
+    <p class="look"><b>Look for</b> the dog's eye, looking up at something we cannot see.</p>
+  </div>
+  </article>
+  <article class="work" id="w-witches-sabbath">
+  <img src="img/witches-sabbath.jpg" width="768" height="243" loading="lazy" decoding="async" alt="A long dark frieze: a crowd of grotesque, gaping faces huddles before a black goat seen in silhouette at left; a woman sits apart at right.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 67</p>
+      <h3>Witches' Sabbath, or the Great He-Goat</h3>
+      <p class="maker">Francisco de Goya, 1820–1823</p>
+      <p class="meta">Mural transferred to canvas · P000761 · <a href="https://www.museodelprado.es/en/the-collection/art-work/witches-sabbath-or-the-great-he-goat/09559184-cfeb-48fe-8acc-89b070b64d92" aria-label="Witches' Sabbath, or the Great He-Goat on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Witches' Sabbath, or the Great He-Goat as seen" aria-pressed="false" data-id="witches-sabbath">✓</button></div>
+    <p class="blurb">More than four metres wide, painted for the same ground-floor room as Saturn. A coven of hideous, open-mouthed figures crowds around the Devil as a black goat, seen only as a silhouette. Goya had mocked superstition in the Caprichos twenty years earlier; here the mockery has turned into dread. The crowd is a mob — credulous, hungry, terrified.</p>
+    <p class="look"><b>Look for</b> the young woman sitting apart at the right with her hands in a muff, the only calm figure, outside the circle.</p>
+  </div>
+  </article>
+  <article class="work" id="w-fight-with-cudgels">
+  <img src="img/fight-with-cudgels.jpg" width="768" height="366" loading="lazy" decoding="async" alt="Two men swing clubs at each other in an open landscape under a blue sky, their legs vanishing into the ground at the knees.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 67</p>
+      <h3>Fight with Cudgels</h3>
+      <p class="maker">Francisco de Goya, 1820–1823</p>
+      <p class="meta">Mural transferred to canvas · P000758 · <a href="https://www.museodelprado.es/en/the-collection/art-works?search=fight+with+cudgels" aria-label="Fight with Cudgels on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark Fight with Cudgels as seen" aria-pressed="false" data-id="fight-with-cudgels">✓</button></div>
+    <p class="blurb">Two men beat each other with clubs in an empty landscape, their legs hidden at the knees — sunk in mud and unable to retreat, in the most common reading, though whether the ground was always so is debated. It is easy to see Spain in it: the liberal and absolutist halves of the country that would fight each other through the nineteenth century and into the twentieth.</p>
+    <p class="look"><b>Look for</b> the open sky and bright landscape — the only daylight among the Black Paintings.</p>
+  </div>
+  </article>
+  <article class="work" id="w-milkmaid-of-bordeaux">
+  <img src="img/milkmaid-of-bordeaux.jpg" width="768" height="856" loading="lazy" decoding="async" alt="A young woman in a dark shawl sits leaning slightly, her face turned down, painted in loose blue, green and grey strokes.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 66</p>
+      <h3>The Milkmaid of Bordeaux</h3>
+      <p class="maker">Francisco de Goya, c. 1827</p>
+      <p class="meta">Oil on canvas · P002899 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-milkmaid-of-bordeaux/b531f836-85c4-4cf3-b76a-70f3106d9e41" aria-label="The Milkmaid of Bordeaux on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Milkmaid of Bordeaux as seen" aria-pressed="false" data-id="milkmaid-of-bordeaux">✓</button></div>
+    <p class="blurb">Goya left Spain in 1824 for liberal exile in Bordeaux, and died there in 1828. This may be his last known painting, made at eighty-one: a young woman, probably on a donkey or cart, painted in broken strokes of blue and green that look forward to Impressionism. After the Black Paintings, it is a strange and moving coda — gentleness, at the very end.</p>
+    <p class="look"><b>Look for</b> the strokes in the shawl and the background: separate dabs of colour, half a century before Monet.</p>
+  </div>
+  </article>
+  </section>
+  <section class="gallery">
+  <p class="where"><span>13 of 13</span> Floor 0 · Rooms 63B, 75</p>
+  <h2 id="s-nineteenth">After Goya: the 19th Century</h2>
+  <p class="intro">The Prado opened on 19 November 1819, and the century that followed is the least-visited part of the building — which makes it a good place to end. Spanish painting after Goya split between official history painting, made to give a young liberal state its martyrs, and the brilliant small pictures of painters who worked for the Paris market.</p>
+  <article class="work" id="w-execution-of-torrijos">
+  <img src="img/execution-of-torrijos.jpg" width="768" height="501" loading="lazy" decoding="async" alt="On a grey beach, men in dark coats stand hand in hand awaiting execution, monks beside them; blindfolded bodies lie on the sand in front.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 75</p>
+      <h3>The Execution of Torrijos and his Companions on the Beach at Málaga</h3>
+      <p class="maker">Antonio Gisbert, 1888</p>
+      <p class="meta">Oil on canvas · P004348 · <a href="https://www.museodelprado.es/en/the-collection/art-work/execution-of-torrijos-and-his-companions-on-the/cc128630-425b-4752-a805-008d26556bbb" aria-label="The Execution of Torrijos and his Companions on the Beach at Málaga on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Execution of Torrijos and his Companions on the Beach at Málaga as seen" aria-pressed="false" data-id="execution-of-torrijos">✓</button></div>
+    <p class="blurb">Six metres wide, commissioned by royal decree in 1886 by a liberal government that wanted martyrs for the nation. In December 1831 General José María Torrijos landed near Málaga to raise a revolt against the absolute monarchy of Ferdinand VII, was betrayed, and was shot on the beach with his companions without trial. Gisbert answers Goya's 3rd of May across seventy years: no terror, no violent light, but dignity — the condemned hold hands, look calmly at the squad, and wait.</p>
+    <p class="look"><b>Look for</b> the first men shot, still blindfolded, sprawled in the foreground — and a top hat lying on the sand beside the painter's signature.</p>
+  </div>
+  </article>
+  <article class="work" id="w-fortuny-japanese-room">
+  <img src="img/fortuny-japanese-room.jpg" width="768" height="346" loading="lazy" decoding="async" alt="A long low canvas: two small children lounge on a low divan in a pale room with Japanese-style wall paintings and potted plants.">
+  <div class="workbody">
+    <div class="workhead"><div>
+      <p class="room">Room 63B</p>
+      <h3>The Painter's Children in the Japanese Room</h3>
+      <p class="maker">Mariano Fortuny, 1874</p>
+      <p class="meta">Oil on canvas · P002931 · <a href="https://www.museodelprado.es/en/the-collection/art-work/the-painters-children-in-the-japanese-room/d3dce4e3-08bb-4bff-bbdc-6a3c445cce46" aria-label="The Painter's Children in the Japanese Room on museodelprado.es">museum page</a></p>
+    </div><button class="seenbtn" aria-label="Mark The Painter's Children in the Japanese Room as seen" aria-pressed="false" data-id="fortuny-japanese-room">✓</button></div>
+    <p class="blurb">Fortuny was the most successful Spanish painter of his day, sought after in Paris and Rome, and he died suddenly at thirty-six in November 1874, leaving this unfinished. It shows his children, María Luisa and Mariano, in the Japanese room of the villa the family rented that summer at Portici, near Naples, and he meant it as a gift for his father-in-law, the painter Federico de Madrazo. The boy grew up to be Mariano Fortuny y Madrazo, the Venetian designer of the Delphos gown and the Fortuny lamp.</p>
+    <p class="look"><b>Look for</b> the floor, left unfinished: you can still see the lines where the tiles were to go.</p>
+  </div>
+  </article>
+  </section>
+<!--END GENERATED sections-->
+  </div>
+</main>
+
+<button id="nextbtn" title="Scroll to the next work you have not marked as seen">Next unseen ↓</button>
+
+<footer>
+  <p>Personal visit guide, built November 2026. Texts written for this guide; room numbers, dates and inventory numbers checked against the Prado's online catalogue, and each work links to its official page. Images: faithful photographic reproductions of public-domain paintings, via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>. Site icon: a detail of Velázquez's Las Meninas (1656). Not affiliated with, or endorsed by, the Museo Nacional del Prado.</p>
+  <p>This guide is a free, non-profit, open-source project (<a href="https://github.com/vicktorhugoqs/prado-guide">source on GitHub</a>, MIT-licensed code, CC BY 4.0 texts) provided as is, with no guarantee of accuracy — always defer to the museum's own labels and website. Corrections are welcome as <a href="https://github.com/vicktorhugoqs/prado-guide/issues">GitHub issues</a>. No personal data is collected; anonymous visit counts only.</p>
+  <p><button type="button" id="resetlink">Reset progress</button> · <button type="button" id="themebtn">Switch light/dark</button></p>
+  <p id="offline" role="status"></p>
+</footer>
+
+<script>
+// The guide itself is in the HTML above — generated from data.js by
+// build.js. Everything here is behaviour: the seen/unseen checklist, the
+// theme toggle, and the background download that makes the guide work
+// offline in the galleries. With JavaScript off, every work still reads.
+(function(){
+  const KEY='prado-seen', THEME='prado-theme';
+  const root=document.documentElement;
+
+  // Theme: follow the system unless the visitor chose. Galleries are dim;
+  // the toggle exists for the visitor whose phone is in light mode anyway.
+  try{ const t=localStorage.getItem(THEME); if(t==='light'||t==='dark')root.dataset.theme=t; }catch(e){}
+  document.getElementById('themebtn').addEventListener('click',()=>{
+    const dark=root.dataset.theme ? root.dataset.theme==='dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{ localStorage.setItem(THEME,root.dataset.theme); }catch(e){}
+  });
+
+  const arts=[...document.querySelectorAll('article.work')];
+  const valid=new Set(arts.map(a=>a.id.slice(2)));
+
+  // Read progress defensively: corrupt or stale storage must never stop the
+  // guide working, and ids no longer in data.js are dropped.
+  let stored=[];
+  try{
+    const raw=JSON.parse(localStorage.getItem(KEY)||'[]');
+    if(Array.isArray(raw))stored=raw;
+  }catch(e){}
+  const seen=new Set(stored.filter(id=>valid.has(id)));
+
+  const prog=document.getElementById('progress');
+  function paint(){
+    prog.innerHTML='<b>'+seen.size+'</b> / '+arts.length+' seen';
+    try{ localStorage.setItem(KEY,JSON.stringify([...seen])); }catch(e){}
+  }
+  function mark(art,btn,on){
+    art.classList.toggle('seen',on);
+    btn.setAttribute('aria-pressed',on);
+  }
+  arts.forEach(a=>{
+    const id=a.id.slice(2);
+    if(seen.has(id))mark(a,a.querySelector('button.seenbtn'),true);
+  });
+  paint();
+
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('button.seenbtn');
+    if(!b)return;
+    const id=b.dataset.id, art=document.getElementById('w-'+id);
+    if(seen.has(id))seen.delete(id); else seen.add(id);
+    mark(art,b,seen.has(id));
+    paint();
+  });
+
+  document.getElementById('nextbtn').addEventListener('click',()=>{
+    const y=window.scrollY+160;
+    const target=arts.find(a=>!a.classList.contains('seen') && a.offsetTop>y)
+               ||arts.find(a=>!a.classList.contains('seen'));
+    if(target)target.scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('resetlink').addEventListener('click',()=>{
+    if(!confirm('Clear all progress?'))return;
+    seen.clear();
+    arts.forEach(a=>mark(a,a.querySelector('button.seenbtn'),false));
+    paint();
+  });
+
+  // Offline: the service worker precaches only the shell, so the page is
+  // usable at once. The images are a second, larger download started once
+  // the page is idle — and the visitor is told when it has finished.
+  if(!('serviceWorker' in navigator) || location.protocol!=='https:')return;
+  const el=document.getElementById('offline');
+  let asked=false;
+  function ask(){
+    if(asked || !navigator.serviceWorker.controller)return;
+    asked=true;
+    el.textContent='Saving the images for offline use…';
+    navigator.serviceWorker.controller.postMessage({type:'cache-images'});
+  }
+  function offer(msg){
+    el.textContent=msg+' ';
+    const b=document.createElement('button');
+    b.type='button'; b.id='offlinebtn'; b.textContent='Save for offline use';
+    b.addEventListener('click',()=>{asked=false;ask()});
+    el.appendChild(b);
+  }
+  navigator.serviceWorker.addEventListener('message',e=>{
+    const d=e.data||{};
+    if(d.type!=='cache-progress')return;
+    if(d.failed)offer('Some images could not be saved ('+d.done+' of '+d.total+').');
+    else if(d.done<d.total)el.textContent='Saving for offline use… '+d.done+' / '+d.total;
+    else el.textContent='Ready to use offline — all '+d.total+' images saved.';
+  });
+  navigator.serviceWorker.register('sw.js');
+  navigator.serviceWorker.ready.then(()=>{
+    const start=()=>{
+      // Don't spend someone's metered data without asking.
+      if(navigator.connection && navigator.connection.saveData)
+        offer('Data saver is on, so the images were not downloaded.');
+      else ask();
+    };
+    const idle=()=>(window.requestIdleCallback||(f=>setTimeout(f,2000)))(start);
+    if(navigator.serviceWorker.controller)idle();
+    else navigator.serviceWorker.addEventListener('controllerchange',idle,{once:true});
+  });
+})();
+</script>
+<script data-goatcounter="https://vicktorhugoqs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

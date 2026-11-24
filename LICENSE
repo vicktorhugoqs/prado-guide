@@ -1,0 +1,51 @@
+MIT License
+
+Copyright (c) 2026 vicktorhugoqs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+SCOPE NOTE — this repository contains material under three different terms.
+The MIT grant above covers only the first.
+
+1. CODE — MIT (the grant above)
+
+   build.js, sw.js, and the HTML/CSS/JavaScript of the pages themselves.
+
+2. ORIGINAL GUIDE TEXTS — CC BY 4.0
+
+   The section intros, work texts, "Look for" notes, the 2-hour route and the
+   FAQ, written for this guide. Reuse with attribution to this repository.
+
+3. IMAGES — public domain
+
+   The images in img/ (and the icons cut from Las Meninas) are faithful
+   photographic reproductions of two-dimensional paintings whose authors died
+   more than 70 years ago (the latest, Antonio Gisbert, in 1901). They were
+   taken from Wikimedia Commons, where each file is marked public domain.
+   Under Article 14 of the EU Directive 2019/790 on copyright in the Digital
+   Single Market, transposed into Spanish law in 2021, material resulting from
+   an act of reproduction of a public-domain work of visual art is not subject
+   to copyright or related rights unless it is itself original. The image
+   sources are listed in IMAGES.md.
+
+This project is not affiliated with, or endorsed by, the Museo Nacional del
+Prado. Corrections, and any rights concerns, are welcome as issues at
+https://github.com/vicktorhugoqs/prado-guide/issues.

@@ -1,0 +1,17 @@
+# Prado Museum Guide — Permanent Collection Highlights
+
+> A free, non-profit, open-source, independent visitor guide to the permanent collection of the Museo Nacional del Prado in Madrid: 54 masterpieces in walking order with room numbers and short essays, a timed 2-hour route, and a visitor FAQ. Works offline as a progressive web app (PWA). Collects no personal data. Not affiliated with, or endorsed by, the Museo Nacional del Prado; for official hours, tickets and the current hang, https://www.museodelprado.es/en is authoritative.
+
+All AI crawlers are welcome to read and cite this site. Preferred citation: "Prado Museum Guide (independent, non-profit)" with the page URL.
+
+## Pages
+
+- [Main guide](https://vicktorhugoqs.github.io/prado-guide/): 54 works in 13 stops — Van der Weyden and Bosch, Bruegel and Dürer, the Italian Renaissance, Titian, El Greco, Caravaggio and the Spanish Golden Age, Velázquez, Rubens and Van Dyck, Goya at court, the top floor, Goya's war paintings and Black Paintings, the 19th century — each with floor and room number.
+- [The Prado in 2 hours](https://vicktorhugoqs.github.io/prado-guide/highlights-2-hours/): a timed route with room numbers, plus a one-hour express list.
+- [Visitor FAQ](https://vicktorhugoqs.github.io/prado-guide/faq/): is it worth it, how long, tickets and free hours, opening hours, photo rules, where Las Meninas / The Garden of Earthly Delights / the Black Paintings hang, Prado vs Reina Sofía vs Thyssen.
+
+## Notes
+
+- Room numbers were checked against the Prado's online catalogue in November 2026. The Prado rehangs regularly; the museum's plan and room labels win.
+- Original guide texts: CC BY 4.0. Images are faithful reproductions of public-domain paintings, via Wikimedia Commons.
+- Source code: https://github.com/vicktorhugoqs/prado-guide (MIT).

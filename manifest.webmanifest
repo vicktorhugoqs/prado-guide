@@ -1,0 +1,13 @@
+{
+  "name": "Prado — Permanent Collection Guide",
+  "short_name": "Prado",
+  "description": "Independent field guide to the permanent collection of the Museo del Prado, Madrid.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#f7f4ee",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
