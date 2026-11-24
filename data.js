@@ -489,15 +489,15 @@ window.GUIDE = {
   {
    "id": "villa-medici",
    "sec": "velazquez1",
-   "title": "View of the Garden of the Villa Medici, Rome",
+   "title": "View of the Gardens of the Villa Medici, Rome",
    "maker": "Diego Velázquez, c. 1630",
    "mat": "Oil on canvas",
    "inv": "P001210",
    "room": "11",
-   "url": "https://www.museodelprado.es/en/the-collection/art-works?search=villa+medici+velazquez",
+   "url": "https://www.museodelprado.es/en/the-collection/art-work/view-of-the-gardens-of-the-villa-medici-rome/9b9584d1-6e48-49e0-9c6a-433fc2e1dbb2",
    "img": "img/villa-medici.jpg",
    "alt": "A garden loggia with a boarded-up arch under tall dark cypresses; a cloth hangs over the balustrade and small figures stand below.",
-   "blurb": "Tiny, and centuries ahead of itself. In Rome Velázquez stayed at the Villa Medici, and this is one of two small views of its gardens painted from life, in the open air, at a time when landscape was assembled in the studio. Quick strokes, broken light on stone and leaves, nothing heroic: a boarded-up arch, a sheet hung over a balustrade, two men talking. Its date is debated — this trip or his second Roman stay in 1649–50 — but no one disputes its freshness.",
+   "blurb": "Tiny, and centuries ahead of itself. In Rome Velázquez stayed at the Villa Medici, and this is one of two small views of its gardens — the other, with a statue of Ariadne, hangs beside it — painted from life, in the open air, at a time when landscape was assembled in the studio. Quick strokes, broken light on stone and leaves, nothing heroic: a boarded-up arch, a sheet hung over a balustrade, two men talking. Its date is debated — this trip or his second Roman stay in 1649–50 — but no one disputes its freshness.",
    "look": "the brushwork from close up, then from five steps back: the sketch turns into air."
   },
   {

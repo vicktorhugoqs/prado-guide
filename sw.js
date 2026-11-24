@@ -4,7 +4,7 @@
 // github.io hosts every one of this account's projects side by side.
 // The prefix is what keeps activate from evicting a neighbour's cache.
 const PREFIX = 'prado-guide-';
-const CACHE = PREFIX + 'de06aeb7122c9a70';
+const CACHE = PREFIX + '28561c5efdfbbd50';
 
 // Cached during install: the guide has to be usable the moment it loads.
 const SHELL = [
