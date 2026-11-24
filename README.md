@@ -12,7 +12,7 @@ A static, offline-capable visit guide to the permanent collection of the [Museo 
 - Light and dark themes (follows the system; toggle in the footer).
 - Every work is in the served HTML, so the guide reads with JavaScript off. JavaScript only runs the checklist, the theme toggle and the offline download.
 - A service worker caches the page shell on first load; the 54 images (~5 MB) follow in the background, and the footer says "Ready to use offline" once they are stored.
-- A [spoken introduction](listen/) for before the visit: half an hour of context in British English (`lang="en-GB"`), written for browser read-aloud — no abbreviations, regnal numbers spelled out.
+- A [spoken introduction](listen/) for before the visit: half an hour of context in British English (`lang="en-GB"`), written for browser read-aloud — no abbreviations, regnal numbers spelled out — and also recorded: a 27-minute M4A/MP3 with chapters, synthesised with Google Cloud Text-to-Speech (see `tools/`).
 - A [2-hour route](highlights-2-hours/) with a one-hour express list, and a [visitor FAQ](faq/) with FAQPage structured data.
 - No framework, no dependencies — one `node build.js` and plain files.
 

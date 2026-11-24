@@ -29,10 +29,13 @@ The MIT grant above covers only the first.
 
    build.js, sw.js, and the HTML/CSS/JavaScript of the pages themselves.
 
-2. ORIGINAL GUIDE TEXTS — CC BY 4.0
+2. ORIGINAL GUIDE TEXTS AND AUDIO — CC BY 4.0
 
-   The section intros, work texts, "Look for" notes, the 2-hour route and the
-   FAQ, written for this guide. Reuse with attribution to this repository.
+   The section intros, work texts, "Look for" notes, the 2-hour route, the
+   FAQ and the spoken introduction, written for this guide, and the recording
+   of the spoken introduction (listen/before-the-prado.*), a synthetic
+   narration made with Google Cloud Text-to-Speech. Reuse with attribution to
+   this repository.
 
 3. IMAGES — public domain
 

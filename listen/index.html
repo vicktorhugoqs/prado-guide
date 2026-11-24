@@ -51,6 +51,18 @@ article h1{margin-bottom:.4rem}
 article h2{font-size:1.25rem; border-top:1px solid var(--line); padding-top:.9rem; margin:1.6rem 0 .5rem}
 article p{font-family:var(--serif); font-size:1.06rem; line-height:1.65; margin:0 0 .85rem}
 article .howto{font-family:var(--sans)}
+.player{background:var(--surface); padding:.8rem .9rem .6rem; margin:0 0 1.4rem}
+.player audio{width:100%; display:block}
+ol.chapters{list-style:none; padding:0; margin:.6rem 0 0}
+ol.chapters li{margin:0}
+ol.chapters button{
+  width:100%; text-align:left; background:none; border:none; border-top:1px solid var(--line);
+  padding:.45rem .1rem; font:inherit; font-size:.88rem; color:var(--ink); cursor:pointer;
+  display:flex; gap:.6rem; align-items:baseline;
+}
+ol.chapters button.on{color:var(--accent); font-weight:600}
+.ct{font-variant-numeric:tabular-nums; color:var(--ink3); font-size:.78rem; min-width:2.6rem}
+.dl{font-size:.78rem; color:var(--ink3); margin:.5rem 0 0}
 </style>
 <script type="application/ld+json">
 {
@@ -81,7 +93,30 @@ article .howto{font-family:var(--sans)}
 <main>
   <article>
   <h1>Before the Prado: a spoken introduction</h1>
-  <p class="howto">About half an hour, written to be listened to. Select your browser's read-aloud and put the phone in your pocket. The <a href="../">written guide</a>, with a room number for every painting, is for the galleries themselves.</p>
+  <p class="howto">About half an hour, written to be listened to. Play the recording below — tap a chapter to jump — or use your browser's read-aloud on the text. The <a href="../">written guide</a>, with a room number for every painting, is for the galleries themselves.</p>
+  <section class="player" aria-label="Audio version">
+    <audio id="aud" controls preload="metadata">
+      <source src="before-the-prado.m4a" type="audio/mp4">
+      <source src="before-the-prado.mp3" type="audio/mpeg">
+    </audio>
+    <ol class="chapters">
+      <li><button type="button" data-t="0.5"><span class="ct">0:00</span> Introduction</button></li>
+      <li><button type="button" data-t="26.6"><span class="ct">0:26</span> One. A king&#x27;s collection, not a museum&#x27;s</button></li>
+      <li><button type="button" data-t="304.6"><span class="ct">5:04</span> Two. The building, and how to spend the afternoon</button></li>
+      <li><button type="button" data-t="430.8"><span class="ct">7:10</span> Three. The Flemish painters, and the strange case of Bosch</button></li>
+      <li><button type="button" data-t="596.3"><span class="ct">9:56</span> Four. Italy, Titian, and the argument about colour</button></li>
+      <li><button type="button" data-t="701.4"><span class="ct">11:41</span> Five. El Greco, the outsider</button></li>
+      <li><button type="button" data-t="797.3"><span class="ct">13:17</span> Six. Caravaggio&#x27;s shadow: Naples and Seville</button></li>
+      <li><button type="button" data-t="899.7"><span class="ct">14:59</span> Seven. Velázquez, the painter of painters</button></li>
+      <li><button type="button" data-t="1170.3"><span class="ct">19:30</span> Eight. Rubens, the painter-diplomat</button></li>
+      <li><button type="button" data-t="1240.2"><span class="ct">20:40</span> Nine. Goya, from the court to the dark</button></li>
+      <li><button type="button" data-t="1465.7"><span class="ct">24:25</span> Ten. Listening with your eyes</button></li>
+      <li><button type="button" data-t="1517.3"><span class="ct">25:17</span> Eleven. How to look, in five habits</button></li>
+      <li><button type="button" data-t="1611.0"><span class="ct">26:51</span> Twelve. Afterwards</button></li>
+    </ol>
+    <p class="dl">Download: <a href="before-the-prado.m4a" download>M4A with chapters</a> (14 MB, best on iPhone) · <a href="before-the-prado.mp3" download>MP3 with chapters</a> (13 MB). 27 minutes, read by a Google synthetic British voice.</p>
+  </section>
+
 
   <p>This is a talk to listen to before you go in, not in front of the paintings. It gives you the background that the labels on the walls take for granted: who bought these pictures, why they are in Madrid and not somewhere else, and what to look for when you are standing in front of them. There are twelve short chapters. If you only have ten minutes, listen to the first two and the one on Velázquez.</p>
 
@@ -168,6 +203,17 @@ article .howto{font-family:var(--sans)}
 <footer>
   <p>Part of a free, non-profit, open-source <a href="../">Prado Museum Guide</a>: the <a href="../">written guide</a> with room numbers, a <a href="../highlights-2-hours/">2-hour route</a> and a <a href="../faq/">visitor FAQ</a>. Not affiliated with, or endorsed by, the Museo Nacional del Prado. <a href="https://github.com/vicktorhugoqs/prado-guide">Source on GitHub</a>.</p>
 </footer>
+<script>
+(function(){
+  const a=document.getElementById('aud'), bs=[...document.querySelectorAll('ol.chapters button')];
+  bs.forEach(b=>b.addEventListener('click',()=>{a.currentTime=+b.dataset.t; a.play();}));
+  // Highlight the chapter now playing.
+  a.addEventListener('timeupdate',()=>{
+    let cur=0; bs.forEach((b,i)=>{ if(a.currentTime>=+b.dataset.t-0.2) cur=i; });
+    bs.forEach((b,i)=>b.classList.toggle('on',i===cur && a.currentTime>0));
+  });
+})();
+</script>
 <script>try{const t=localStorage.getItem('prado-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
 <script data-goatcounter="https://vicktorhugoqs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

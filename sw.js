@@ -4,7 +4,7 @@
 // github.io hosts every one of this account's projects side by side.
 // The prefix is what keeps activate from evicting a neighbour's cache.
 const PREFIX = 'prado-guide-';
-const CACHE = PREFIX + '4df431c25119cce2';
+const CACHE = PREFIX + '00b7a470a2375daf';
 
 // Cached during install: the guide has to be usable the moment it loads.
 const SHELL = [
@@ -106,6 +106,9 @@ self.addEventListener('activate', e => {
 // server every time, not be answered from this cache.
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  // Audio is streamed with Range requests, and the Cache API cannot store
+  // the partial (206) responses they return — so media goes to the network.
+  if (e.request.headers.has('range') || /\.(m4a|mp3)$/.test(new URL(e.request.url).pathname)) return;
   e.respondWith(
     caches.match(e.request, {ignoreSearch: true}).then(hit =>
       hit || fetch(e.request).then(res => {
