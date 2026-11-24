@@ -20,7 +20,7 @@ window.GUIDE = {
    "name": "Flemish Primitives & Bosch",
    "floor": "0",
    "rooms": "56A, 58",
-   "intro": "Spain ruled the Low Countries for two centuries, and Castile bought Flemish painting long before it bought Italian. That is why the finest Bosch collection on earth hangs in Madrid rather than in 's-Hertogenbosch: Philip II hunted his pictures down with a collector's obsession and hung them at El Escorial. Start with Rogier van der Weyden in Room 58, the painting every Netherlandish artist of the next century measured himself against, then step into the dim Bosch room, 56A."
+   "intro": "Spain's Habsburg kings ruled the Low Countries for a century and a half, and Castile collected Flemish painting long before it collected Italian. That is why the finest Bosch collection on earth hangs in Madrid rather than in 's-Hertogenbosch: Philip II hunted his pictures down with a collector's obsession and hung them at El Escorial. Start with Rogier van der Weyden in Room 58, the painting every Netherlandish artist of the next century measured himself against, then step into the dim Bosch room, 56A."
   },
   {
    "id": "northern",
@@ -41,7 +41,7 @@ window.GUIDE = {
    "name": "Titian & Venice",
    "floor": "1",
    "rooms": "25, 27, 42, 44",
-   "intro": "Titian was the Habsburgs' painter the way Velázquez would later be Philip IV's: Charles V made him a count palatine, and Philip II commissioned from him the poesie, mythologies painted as poems for the eye. Spain ended up owning more Titians than anyone, and the next century of Spanish painting was learned in front of them — Velázquez and Rubens both copied here. The great Titian portrait is in the Central Gallery; the mythologies are in Rooms 42 and 44."
+   "intro": "Titian was the Habsburgs' painter the way Velázquez would later be Philip IV's: Charles V made him a count palatine, and Philip II commissioned from him the poesie, mythologies painted as poems for the eye. Spain ended up owning more Titians than anyone, and the next century of painting in Madrid was learned in front of them — Rubens copied them in the palace, and Velázquez lived with them. The great Titian portrait is in the Central Gallery; the mythologies are in Rooms 42 and 44."
   },
   {
    "id": "greco",
@@ -69,7 +69,7 @@ window.GUIDE = {
    "name": "Velázquez II: Painter to the King",
    "floor": "1",
    "rooms": "9A, 12, 15A",
-   "intro": "From the 1630s Velázquez painted for the king's new palace of the Buen Retiro and his hunting lodges, and rose as a courtier until he was made a Knight of Santiago in 1659, a year before his death. Room 12, the oval room at the heart of the building, is the Prado's shrine: Las Meninas, with princes, jesters and philosophers around it."
+   "intro": "From the 1630s Velázquez painted for the king's new palace of the Buen Retiro and his hunting lodges, and rose as a courtier until he was made a Knight of Santiago in 1659, a year before his death. Room 12, at the heart of the building, is the Prado's shrine: Las Meninas, with princes, jesters and philosophers around it."
   },
   {
    "id": "rubens",
