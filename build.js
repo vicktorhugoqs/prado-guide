@@ -271,7 +271,7 @@ function lastmodFor(file) {
 /* --------------------------------------------------------------- build */
 
 const SHELL = [
-  './', 'index.html', 'faq/', 'highlights-2-hours/', 'manifest.webmanifest',
+  './', 'index.html', 'faq/', 'highlights-2-hours/', 'listen/', 'manifest.webmanifest',
   'favicon.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png',
 ];
 
@@ -281,6 +281,7 @@ const SHELL_FILE = {
   './': 'index.html',
   'faq/': 'faq/index.html',
   'highlights-2-hours/': 'highlights-2-hours/index.html',
+  'listen/': 'listen/index.html',
 };
 
 // The cache name changes whenever any cached byte changes, so a visitor can
@@ -300,6 +301,7 @@ const PAGES = [
   [SITE, 'index.html'],
   [SITE + 'highlights-2-hours/', 'highlights-2-hours/index.html'],
   [SITE + 'faq/', 'faq/index.html'],
+  [SITE + 'listen/', 'listen/index.html'],
 ];
 
 function build() {
@@ -363,7 +365,7 @@ function build() {
 
 /* ------------------------------------------------------- link reporting */
 
-const SUBPAGES = ['highlights-2-hours/index.html', 'faq/index.html'];
+const SUBPAGES = ['highlights-2-hours/index.html', 'faq/index.html', 'listen/index.html'];
 
 // Identifies the one FAQPage entry rendered from data.js. Matched verbatim,
 // so editing this question in faq/index.html means editing it here too.

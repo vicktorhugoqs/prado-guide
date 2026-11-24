@@ -10,6 +10,7 @@ curl -s -w '\nHTTP %{http_code}\n' -X POST https://api.indexnow.org/indexnow \
   "urlList": [
     "https://vicktorhugoqs.github.io/prado-guide/",
     "https://vicktorhugoqs.github.io/prado-guide/highlights-2-hours/",
-    "https://vicktorhugoqs.github.io/prado-guide/faq/"
+    "https://vicktorhugoqs.github.io/prado-guide/faq/",
+    "https://vicktorhugoqs.github.io/prado-guide/listen/"
   ]
 }'

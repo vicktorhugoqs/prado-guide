@@ -8,6 +8,7 @@ All AI crawlers are welcome to read and cite this site. Preferred citation: "Pra
 
 - [Main guide](https://vicktorhugoqs.github.io/prado-guide/): 54 works in 13 stops — Van der Weyden and Bosch, Bruegel and Dürer, the Italian Renaissance, Titian, El Greco, Caravaggio and the Spanish Golden Age, Velázquez, Rubens and Van Dyck, Goya at court, the top floor, Goya's war paintings and Black Paintings, the 19th century — each with floor and room number.
 - [The Prado in 2 hours](https://vicktorhugoqs.github.io/prado-guide/highlights-2-hours/): a timed route with room numbers, plus a one-hour express list.
+- [Before the Prado: a spoken introduction](https://vicktorhugoqs.github.io/prado-guide/listen/): a half-hour pre-visit talk in British English, written for text-to-speech — the royal collection, the building, and how to look at Bosch, Titian, El Greco, Velázquez, Rubens and Goya.
 - [Visitor FAQ](https://vicktorhugoqs.github.io/prado-guide/faq/): is it worth it, how long, tickets and free hours, opening hours, photo rules, where Las Meninas / The Garden of Earthly Delights / the Black Paintings hang, Prado vs Reina Sofía vs Thyssen.
 
 ## Notes
